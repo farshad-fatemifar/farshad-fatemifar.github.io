@@ -1,1609 +1,2133 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Farshad Fatemifar — Graphic Designer & AI Creator</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta name="description"
-content="Portfolio of Farshad Fatemifar — Graphic Designer & AI Creator.">
+    <title>
+        Farshad Fatemifar — Graphic Designer & AI Creator
+    </title>
 
-<!-- FAVICON -->
-<!-- بعداً favicon.png خودت را در assets قرار بده -->
-<link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta
+        name="description"
+        content="Portfolio of Farshad Fatemifar — Graphic Designer & AI Creator."
+    >
 
-<!-- GOOGLE FONTS -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-/* =========================================================
-   RESET
-========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <style>
 
-html{
-    scroll-behavior:smooth;
-}
+        /* =====================================================
+           ROOT
+        ====================================================== */
 
-body{
-    background:#F4F1E8;
-    color:#1D2922;
+        :root {
 
-    font-family:"DM Sans",sans-serif;
+            --cream: #F4F1E8;
 
-    overflow-x:hidden;
+            --cream-dark: #E8E5DA;
 
-    cursor:none;
-}
+            --sage: #819D8B;
 
-img,
-video{
-    display:block;
-    width:100%;
-}
+            --sage-dark: #5E7968;
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
+            --sage-light: #B9C9BC;
 
+            --green: #18251E;
 
-/* =========================================================
-   VARIABLES
-========================================================= */
+            --green-soft: #24342A;
 
-:root{
+            --black: #101511;
 
-    --cream:#F4F1E8;
-    --cream-dark:#E9E5D9;
+            --gray: #68726B;
 
-    --sage:#78947F;
-    --sage-dark:#536C5C;
-    --sage-light:#AFC0B2;
+            --white: #FCFBF7;
 
-    --green:#1D2922;
-    --green-soft:#29382F;
+            --border: rgba(24, 37, 30, 0.14);
 
-    --text:#1D2922;
-    --muted:#68736C;
+        }
 
-}
 
+        /* =====================================================
+           RESET
+        ====================================================== */
 
-/* =========================================================
-   GRAIN
-========================================================= */
+        * {
 
-body::before{
+            margin: 0;
 
-    content:"";
+            padding: 0;
 
-    position:fixed;
+            box-sizing: border-box;
 
-    inset:0;
+        }
 
-    pointer-events:none;
 
-    z-index:9999;
+        html {
 
-    opacity:.035;
+            scroll-behavior: smooth;
 
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+        }
 
-}
 
+        body {
 
-/* =========================================================
-   CUSTOM CURSOR
-========================================================= */
+            background: var(--cream);
 
-.cursor{
+            color: var(--green);
 
-    position:fixed;
+            font-family: "Manrope", sans-serif;
 
-    width:10px;
-    height:10px;
+            overflow-x: hidden;
 
-    border-radius:50%;
+        }
 
-    background:var(--green);
 
-    pointer-events:none;
+        a {
 
-    z-index:10000;
+            text-decoration: none;
 
-    transform:translate(-50%,-50%);
+            color: inherit;
 
-    transition:
-        width .25s ease,
-        height .25s ease,
-        background .25s ease;
+        }
 
-}
 
-.cursor-ring{
+        img {
 
-    position:fixed;
+            display: block;
 
-    width:38px;
-    height:38px;
+            width: 100%;
 
-    border:1px solid var(--green);
+        }
 
-    border-radius:50%;
 
-    pointer-events:none;
+        button {
 
-    z-index:9999;
+            font-family: inherit;
 
-    transform:translate(-50%,-50%);
+        }
 
-    transition:
-        width .3s ease,
-        height .3s ease;
 
-}
+        /* =====================================================
+           CUSTOM CURSOR
+        ====================================================== */
 
-.cursor.active{
+        .cursor {
 
-    width:65px;
-    height:65px;
+            position: fixed;
 
-    background:var(--sage);
+            width: 14px;
 
-    mix-blend-mode:multiply;
+            height: 14px;
 
-}
+            border-radius: 50%;
 
-.cursor-ring.active{
+            background: var(--sage);
 
-    width:75px;
-    height:75px;
+            pointer-events: none;
 
-}
+            z-index: 9999;
 
+            transform: translate(-50%, -50%);
 
-/* =========================================================
-   NAV
-========================================================= */
+            transition:
+                width .3s ease,
+                height .3s ease,
+                background .3s ease;
 
-.nav{
+            mix-blend-mode: multiply;
 
-    position:fixed;
+        }
 
-    top:0;
-    left:0;
 
-    width:100%;
+        .cursor.active {
 
-    padding:25px 5vw;
+            width: 55px;
 
-    display:flex;
+            height: 55px;
 
-    justify-content:space-between;
+            background: var(--sage-light);
 
-    align-items:center;
+        }
 
-    z-index:1000;
 
-    background:rgba(244,241,232,.72);
+        /* =====================================================
+           PAGE LOAD
+        ====================================================== */
 
-    backdrop-filter:blur(18px);
+        body {
 
-    border-bottom:1px solid rgba(29,41,34,.08);
+            animation: pageIn 1s ease forwards;
 
-}
+        }
 
-.logo{
 
-    font-size:13px;
+        @keyframes pageIn {
 
-    font-weight:700;
+            from {
 
-    letter-spacing:2px;
+                opacity: 0;
 
-}
+            }
 
-.nav-links{
+            to {
 
-    display:flex;
+                opacity: 1;
 
-    gap:35px;
+            }
 
-    list-style:none;
+        }
 
-    font-size:11px;
 
-    font-weight:600;
+        /* =====================================================
+           NAVIGATION
+        ====================================================== */
 
-    letter-spacing:1.5px;
+        .nav {
 
-}
+            position: fixed;
 
-.nav-links a{
+            top: 0;
 
-    position:relative;
+            left: 0;
 
-}
+            width: 100%;
 
-.nav-links a::after{
+            padding: 24px 5vw;
 
-    content:"";
+            display: flex;
 
-    position:absolute;
+            justify-content: space-between;
 
-    left:0;
+            align-items: center;
 
-    bottom:-7px;
+            z-index: 1000;
 
-    width:0;
+            background: rgba(244, 241, 232, .72);
 
-    height:1px;
+            backdrop-filter: blur(18px);
 
-    background:var(--sage);
+            border-bottom: 1px solid rgba(24,37,30,.07);
 
-    transition:.35s;
+        }
 
-}
 
-.nav-links a:hover::after{
+        .brand {
 
-    width:100%;
+            font-size: 13px;
 
-}
+            font-weight: 800;
 
+            letter-spacing: 2px;
 
-/* =========================================================
-   HERO
-========================================================= */
+        }
 
-.hero{
 
-    min-height:100vh;
+        .nav-right {
 
-    padding:170px 5vw 90px;
+            display: flex;
 
-    position:relative;
+            align-items: center;
 
-    display:flex;
+            gap: 35px;
 
-    flex-direction:column;
+        }
 
-    justify-content:center;
 
-    overflow:hidden;
+        .nav-link {
 
-}
+            position: relative;
 
-.hero-eyebrow{
+            font-size: 11px;
 
-    display:flex;
+            font-weight: 700;
 
-    align-items:center;
+            letter-spacing: 1.5px;
 
-    gap:15px;
+        }
 
-    color:var(--sage-dark);
 
-    font-size:11px;
+        .nav-link::after {
 
-    font-weight:700;
+            content: "";
 
-    letter-spacing:3px;
+            position: absolute;
 
-    margin-bottom:35px;
+            bottom: -6px;
 
-}
+            left: 0;
 
-.hero-eyebrow::before{
+            width: 0;
 
-    content:"";
+            height: 1px;
 
-    width:45px;
+            background: var(--sage-dark);
 
-    height:1px;
+            transition: width .35s ease;
 
-    background:var(--sage);
+        }
 
-}
 
-.hero h1{
+        .nav-link:hover::after {
 
-    position:relative;
+            width: 100%;
 
-    z-index:3;
+        }
 
-    font-size:clamp(70px,12vw,175px);
 
-    line-height:.78;
+        .availability {
 
-    letter-spacing:-8px;
+            display: flex;
 
-    font-weight:600;
+            align-items: center;
 
-    max-width:1100px;
+            gap: 8px;
 
-}
+            font-size: 10px;
 
-.hero h1 em{
+            font-weight: 700;
 
-    font-family:"Playfair Display",serif;
+            letter-spacing: 1px;
 
-    font-weight:500;
+            color: var(--gray);
 
-    color:var(--sage);
+        }
 
-}
 
-.hero-description{
+        .availability-dot {
 
-    position:relative;
+            width: 7px;
 
-    z-index:5;
+            height: 7px;
 
-    max-width:420px;
+            background: var(--sage-dark);
 
-    margin-top:55px;
+            border-radius: 50%;
 
-    font-size:15px;
+            animation: pulse 2s infinite;
 
-    line-height:1.9;
+        }
 
-    color:var(--muted);
 
-}
+        @keyframes pulse {
 
-.hero-actions{
+            0%,100% {
 
-    position:relative;
+                opacity: .35;
 
-    z-index:5;
+                transform: scale(.8);
 
-    display:flex;
+            }
 
-    gap:15px;
+            50% {
 
-    margin-top:30px;
+                opacity: 1;
 
-}
+                transform: scale(1);
 
-.btn{
+            }
 
-    padding:15px 23px;
+        }
 
-    border-radius:100px;
 
-    font-size:11px;
+        /* =====================================================
+           HERO
+        ====================================================== */
 
-    font-weight:700;
+        .hero {
 
-    letter-spacing:1px;
+            min-height: 100svh;
 
-    transition:.4s;
+            padding: 150px 5vw 70px;
 
-}
+            position: relative;
 
-.btn-primary{
+            display: flex;
 
-    background:var(--green);
+            flex-direction: column;
 
-    color:var(--cream);
+            justify-content: center;
 
-}
+            overflow: hidden;
 
-.btn-primary:hover{
+        }
 
-    background:var(--sage);
 
-    transform:translateY(-5px);
+        .hero-top {
 
-}
+            display: flex;
 
-.btn-outline{
+            justify-content: space-between;
 
-    border:1px solid rgba(29,41,34,.25);
+            align-items: center;
 
-}
+            margin-bottom: 35px;
 
-.btn-outline:hover{
+            position: relative;
 
-    background:var(--sage-light);
+            z-index: 5;
 
-    border-color:var(--sage-light);
+        }
 
-}
 
+        .eyebrow {
 
-/* =========================================================
-   HERO ART
-========================================================= */
+            font-size: 11px;
 
-.hero-art{
+            font-weight: 700;
 
-    position:absolute;
+            letter-spacing: 3px;
 
-    right:6vw;
+            color: var(--sage-dark);
 
-    top:23%;
+        }
 
-    width:min(34vw,470px);
 
-    aspect-ratio:1;
+        .hero-index {
 
-    z-index:1;
+            font-size: 10px;
 
-}
+            color: var(--gray);
 
-.art-circle{
+            letter-spacing: 2px;
 
-    position:absolute;
+        }
 
-    inset:0;
 
-    border-radius:50%;
+        .hero-title {
 
-    background:
+            position: relative;
 
-        radial-gradient(
-            circle at 35% 30%,
-            #BFCFC2,
-            var(--sage) 48%,
-            var(--sage-dark)
-        );
+            z-index: 5;
 
-    animation:heroFloat 8s ease-in-out infinite;
+            font-family: "DM Sans", sans-serif;
 
-}
+            font-size: clamp(70px, 12.5vw, 185px);
 
-.art-circle::after{
+            line-height: .78;
 
-    content:"";
+            letter-spacing: -8px;
 
-    position:absolute;
+            font-weight: 700;
 
-    width:45%;
+            text-transform: uppercase;
 
-    height:45%;
+        }
 
-    right:5%;
 
-    bottom:5%;
+        .hero-title .line {
 
-    border-radius:50%;
+            display: block;
 
-    background:var(--cream);
+        }
 
-    opacity:.3;
 
-    filter:blur(20px);
+        .hero-title .accent {
 
-}
+            color: var(--sage-dark);
 
-.art-ring{
+            margin-left: 8vw;
 
-    position:absolute;
+        }
 
-    inset:-30px;
 
-    border:1px solid rgba(83,108,92,.4);
+        .hero-bottom {
 
-    border-radius:50%;
+            position: relative;
 
-    animation:spin 25s linear infinite;
+            z-index: 10;
 
-}
+            margin-top: 60px;
 
-@keyframes heroFloat{
+            display: flex;
 
-    0%,100%{
-        transform:translateY(0) rotate(0);
-    }
+            justify-content: space-between;
 
-    50%{
-        transform:translateY(-20px) rotate(5deg);
-    }
+            align-items: flex-end;
 
-}
+            gap: 40px;
 
-@keyframes spin{
+        }
 
-    to{
-        transform:rotate(360deg);
-    }
 
-}
+        .hero-description {
 
+            max-width: 430px;
 
-/* =========================================================
-   MARQUEE
-========================================================= */
+            color: var(--gray);
 
-.marquee{
+            font-size: 15px;
 
-    overflow:hidden;
+            line-height: 1.8;
 
-    padding:20px 0;
+        }
 
-    background:var(--sage);
 
-    color:var(--cream);
+        .hero-cta {
 
-    white-space:nowrap;
+            display: flex;
 
-}
+            align-items: center;
 
-.marquee-track{
+            gap: 15px;
 
-    display:inline-flex;
+            font-size: 11px;
 
-    animation:marquee 25s linear infinite;
+            font-weight: 800;
 
-}
+            letter-spacing: 1px;
 
-.marquee span{
+        }
 
-    font-size:12px;
 
-    font-weight:600;
+        .cta-circle {
 
-    letter-spacing:3px;
+            width: 54px;
 
-    margin:0 35px;
+            height: 54px;
 
-}
+            border-radius: 50%;
 
-@keyframes marquee{
+            background: var(--green);
 
-    from{
-        transform:translateX(0);
-    }
+            color: var(--cream);
 
-    to{
-        transform:translateX(-50%);
-    }
+            display: flex;
 
-}
+            align-items: center;
 
+            justify-content: center;
 
-/* =========================================================
-   INTRO
-========================================================= */
+            transition: transform .45s cubic-bezier(.2,.8,.2,1);
 
-.intro{
+        }
 
-    padding:150px 5vw;
 
-    display:grid;
+        .hero-cta:hover .cta-circle {
 
-    grid-template-columns:1.5fr 1fr;
+            transform: rotate(45deg) scale(1.08);
 
-    gap:100px;
+        }
 
-}
 
-.intro h2{
+        /* =====================================================
+           HERO ART
+        ====================================================== */
 
-    font-size:clamp(45px,7vw,100px);
+        .hero-art {
 
-    line-height:.9;
+            position: absolute;
 
-    letter-spacing:-5px;
+            width: clamp(260px, 32vw, 500px);
 
-    font-weight:500;
+            aspect-ratio: 1;
 
-}
+            right: 7vw;
 
-.intro h2 em{
+            top: 24%;
 
-    font-family:"Playfair Display",serif;
+            z-index: 2;
 
-    color:var(--sage);
+            pointer-events: none;
 
-}
+        }
 
-.intro-copy{
 
-    align-self:end;
+        .hero-art-circle {
 
-    max-width:430px;
+            position: absolute;
 
-    color:var(--muted);
+            inset: 0;
 
-    font-size:15px;
+            border-radius: 50%;
 
-    line-height:1.9;
+            background: var(--sage);
 
-}
+            animation: heroFloat 7s ease-in-out infinite;
 
+        }
 
-/* =========================================================
-   SECTION HEADER
-========================================================= */
 
-.section{
+        .hero-art-circle::before {
 
-    padding:120px 5vw;
+            content: "";
 
-}
+            position: absolute;
 
-.section-top{
+            width: 55%;
 
-    display:flex;
+            height: 55%;
 
-    justify-content:space-between;
+            top: 12%;
 
-    align-items:center;
+            left: 10%;
 
-    margin-bottom:55px;
+            border-radius: 50%;
 
-}
+            background: var(--sage-light);
 
-.section-label{
+            filter: blur(20px);
 
-    font-size:10px;
+            opacity: .75;
 
-    letter-spacing:3px;
+        }
 
-    font-weight:700;
 
-    color:var(--sage-dark);
+        .hero-art-circle::after {
 
-}
+            content: "";
 
+            position: absolute;
 
-/* =========================================================
-   PROJECTS
-========================================================= */
+            inset: 12%;
 
-.projects{
+            border: 1px solid rgba(255,255,255,.4);
 
-    display:grid;
+            border-radius: 50%;
 
-    grid-template-columns:repeat(12,1fr);
+        }
 
-    gap:22px;
 
-}
+        .hero-art-ring {
 
-.project{
+            position: absolute;
 
-    position:relative;
+            inset: -18px;
 
-    overflow:hidden;
+            border: 1px solid var(--sage);
 
-    min-height:520px;
+            border-radius: 50%;
 
-    border-radius:4px;
+            opacity: .35;
 
-    background:var(--cream-dark);
+            animation: spin 20s linear infinite;
 
-    cursor:pointer;
+        }
 
-}
 
-.project:nth-child(1){
-    grid-column:span 7;
-}
+        @keyframes heroFloat {
 
-.project:nth-child(2){
-    grid-column:span 5;
-}
+            0%,100% {
 
-.project:nth-child(3){
-    grid-column:span 5;
-}
+                transform: translateY(0) rotate(0);
 
-.project:nth-child(4){
-    grid-column:span 7;
-}
+            }
 
-.project:nth-child(5){
-    grid-column:span 4;
-}
+            50% {
 
-.project:nth-child(6){
-    grid-column:span 8;
-}
+                transform: translateY(-22px) rotate(5deg);
 
-.project-media{
+            }
 
-    position:absolute;
+        }
 
-    inset:0;
 
-    width:100%;
-    height:100%;
+        @keyframes spin {
 
-    object-fit:cover;
+            from {
 
-    transition:transform .9s cubic-bezier(.2,.7,.2,1);
+                transform: rotate(0deg);
 
-}
+            }
 
-.project:hover .project-media{
+            to {
 
-    transform:scale(1.08);
+                transform: rotate(360deg);
 
-}
+            }
 
-.project-placeholder{
+        }
 
-    position:absolute;
 
-    inset:0;
+        /* =====================================================
+           SCROLL INDICATOR
+        ====================================================== */
 
-    display:flex;
+        .scroll {
 
-    align-items:center;
+            position: absolute;
 
-    justify-content:center;
+            bottom: 35px;
 
-    background:linear-gradient(
-        135deg,
-        #D9E0D8,
-        var(--sage)
-    );
+            left: 5vw;
 
-    color:var(--green);
+            display: flex;
 
-    font-size:11px;
+            align-items: center;
 
-    font-weight:700;
+            gap: 12px;
 
-    letter-spacing:3px;
+            font-size: 9px;
 
-}
+            letter-spacing: 2px;
 
-.project:nth-child(2) .project-placeholder{
+            color: var(--gray);
 
-    background:var(--green);
+            z-index: 10;
 
-    color:var(--sage-light);
+        }
 
-}
 
-.project:nth-child(3) .project-placeholder{
+        .scroll-line {
 
-    background:#C6D4C9;
+            width: 40px;
 
-}
+            height: 1px;
 
-.project:nth-child(4) .project-placeholder{
+            background: var(--sage-dark);
 
-    background:var(--sage-dark);
+        }
 
-    color:var(--cream);
 
-}
+        /* =====================================================
+           MARQUEE
+        ====================================================== */
 
-.project-overlay{
+        .marquee {
 
-    position:absolute;
+            overflow: hidden;
 
-    inset:0;
+            background: var(--sage);
 
-    background:linear-gradient(
-        to top,
-        rgba(20,28,23,.75),
-        transparent 55%
-    );
+            padding: 18px 0;
 
-    opacity:0;
+            white-space: nowrap;
 
-    transition:.5s;
+        }
 
-}
 
-.project:hover .project-overlay{
+        .marquee-track {
 
-    opacity:1;
+            display: inline-flex;
 
-}
+            animation: marquee 24s linear infinite;
 
-.project-info{
+        }
 
-    position:absolute;
 
-    left:28px;
-    right:28px;
-    bottom:28px;
+        .marquee span {
 
-    display:flex;
+            font-family: "DM Sans", sans-serif;
 
-    justify-content:space-between;
+            font-size: 13px;
 
-    align-items:flex-end;
+            font-weight: 700;
 
-    color:white;
+            letter-spacing: 3px;
 
-    opacity:0;
+            margin-right: 65px;
 
-    transform:translateY(20px);
+        }
 
-    transition:.5s;
 
-}
+        @keyframes marquee {
 
-.project:hover .project-info{
+            from {
 
-    opacity:1;
+                transform: translateX(0);
 
-    transform:translateY(0);
+            }
 
-}
+            to {
 
-.project-info h3{
+                transform: translateX(-50%);
 
-    font-size:19px;
+            }
 
-}
+        }
 
-.project-info p{
 
-    font-size:10px;
+        /* =====================================================
+           STATEMENT
+        ====================================================== */
 
-    margin-top:5px;
+        .statement {
 
-    opacity:.7;
+            padding: 150px 5vw;
 
-}
+            display: grid;
 
-.project-arrow{
+            grid-template-columns: 1fr .65fr;
 
-    width:45px;
-    height:45px;
+            gap: 100px;
 
-    border:1px solid rgba(255,255,255,.5);
+        }
 
-    border-radius:50%;
 
-    display:flex;
+        .statement-title {
 
-    align-items:center;
-    justify-content:center;
+            font-family: "DM Sans", sans-serif;
 
-}
+            font-size: clamp(48px, 7vw, 100px);
 
+            line-height: .92;
 
-/* =========================================================
-   AI SECTION
-========================================================= */
+            letter-spacing: -5px;
 
-.ai{
+            font-weight: 600;
 
-    background:var(--green);
+        }
 
-    color:var(--cream);
 
-    padding:150px 5vw;
+        .statement-title span {
 
-    overflow:hidden;
+            color: var(--sage-dark);
 
-}
+        }
 
-.ai-heading{
 
-    max-width:1000px;
+        .statement-copy {
 
-    font-size:clamp(55px,9vw,135px);
+            align-self: end;
 
-    line-height:.82;
+            max-width: 420px;
 
-    letter-spacing:-7px;
+            color: var(--gray);
 
-    font-weight:500;
+            font-size: 14px;
 
-}
+            line-height: 1.9;
 
-.ai-heading em{
+        }
 
-    font-family:"Playfair Display",serif;
 
-    color:var(--sage-light);
+        /* =====================================================
+           SECTION
+        ====================================================== */
 
-}
+        .section {
 
-.workflow{
+            padding: 130px 5vw;
 
-    margin-top:100px;
+        }
 
-    display:grid;
 
-    grid-template-columns:repeat(5,1fr);
+        .section-head {
 
-    border-top:1px solid rgba(244,241,232,.18);
+            display: flex;
 
-    border-bottom:1px solid rgba(244,241,232,.18);
+            justify-content: space-between;
 
-}
+            align-items: flex-end;
 
-.workflow-item{
+            margin-bottom: 55px;
 
-    padding:30px 20px;
+        }
 
-    border-right:1px solid rgba(244,241,232,.18);
 
-}
+        .section-label {
 
-.workflow-item:last-child{
+            font-size: 10px;
 
-    border:none;
+            letter-spacing: 3px;
 
-}
+            font-weight: 800;
 
-.workflow-number{
+            color: var(--sage-dark);
 
-    color:var(--sage-light);
+        }
 
-    font-size:10px;
 
-    margin-bottom:30px;
+        .section-count {
 
-}
+            font-size: 10px;
 
-.workflow-title{
+            color: var(--gray);
 
-    font-size:12px;
+            letter-spacing: 1px;
 
-    font-weight:700;
+        }
 
-    letter-spacing:1px;
 
-}
+        /* =====================================================
+           PROJECTS
+        ====================================================== */
 
+        .projects {
 
-/* =========================================================
-   ABOUT
-========================================================= */
+            display: grid;
 
-.about{
+            grid-template-columns: repeat(12,1fr);
 
-    padding:150px 5vw;
+            gap: 22px;
 
-    display:grid;
+        }
 
-    grid-template-columns:.8fr 1.2fr;
 
-    gap:100px;
+        .project {
 
-    align-items:center;
+            position: relative;
 
-}
+            overflow: hidden;
 
-.profile{
+            border-radius: 4px;
 
-    position:relative;
+            background: var(--cream-dark);
 
-    aspect-ratio:4/5;
+            min-height: 520px;
 
-    background:var(--sage-light);
+            cursor: pointer;
 
-    overflow:hidden;
+        }
 
-}
 
-.profile-placeholder{
+        .project:nth-child(1) {
 
-    width:100%;
-    height:100%;
+            grid-column: span 7;
 
-    display:flex;
+        }
 
-    align-items:center;
-    justify-content:center;
 
-    font-size:11px;
+        .project:nth-child(2) {
 
-    letter-spacing:3px;
+            grid-column: span 5;
 
-    font-weight:700;
+        }
 
-    color:var(--sage-dark);
 
-}
+        .project:nth-child(3) {
 
-.about h2{
+            grid-column: span 5;
 
-    font-size:clamp(50px,7vw,100px);
+        }
 
-    line-height:.85;
 
-    letter-spacing:-5px;
+        .project:nth-child(4) {
 
-    font-weight:500;
+            grid-column: span 7;
 
-    margin:25px 0 40px;
+        }
 
-}
 
-.about h2 em{
+        .project:nth-child(5) {
 
-    font-family:"Playfair Display",serif;
+            grid-column: span 4;
 
-    color:var(--sage);
+        }
 
-}
 
-.about-copy{
+        .project:nth-child(6) {
 
-    max-width:600px;
+            grid-column: span 8;
 
-    color:var(--muted);
+        }
 
-    line-height:1.9;
 
-    font-size:15px;
+        .project-media {
 
-}
+            position: absolute;
 
-.details{
+            inset: 0;
 
-    margin-top:50px;
+            width: 100%;
 
-    display:grid;
+            height: 100%;
 
-    grid-template-columns:repeat(2,1fr);
+            object-fit: cover;
 
-    gap:30px;
+            transition:
 
-}
+                transform .9s cubic-bezier(.2,.8,.2,1),
 
-.detail{
+                filter .6s ease;
 
-    border-top:1px solid #D0CEC4;
+        }
 
-    padding-top:14px;
 
-}
+        .project:hover .project-media {
 
-.detail span{
+            transform: scale(1.07);
 
-    display:block;
+            filter: saturate(1.05);
 
-    color:var(--sage-dark);
+        }
 
-    font-size:9px;
 
-    letter-spacing:2px;
+        .project-overlay {
 
-    margin-bottom:7px;
+            position: absolute;
 
-}
+            inset: 0;
 
-.detail strong{
+            background:
 
-    font-size:13px;
+                linear-gradient(
 
-}
+                    to top,
 
+                    rgba(16,21,17,.8),
 
-/* =========================================================
-   SKILLS
-========================================================= */
+                    rgba(16,21,17,0) 60%
 
-.skills{
+                );
 
-    padding:120px 5vw;
+            opacity: .75;
 
-    background:var(--cream-dark);
+        }
 
-}
 
-.skill-list{
+        .project-meta {
 
-    margin-top:60px;
+            position: absolute;
 
-    border-top:1px solid #CBCAC0;
+            left: 25px;
 
-}
+            right: 25px;
 
-.skill{
+            bottom: 24px;
 
-    display:flex;
+            z-index: 5;
 
-    justify-content:space-between;
+            color: white;
 
-    align-items:center;
+            display: flex;
 
-    padding:24px 0;
+            justify-content: space-between;
 
-    border-bottom:1px solid #CBCAC0;
+            align-items: flex-end;
 
-    font-size:clamp(27px,4vw,58px);
+        }
 
-    letter-spacing:-2px;
 
-    transition:.4s;
+        .project-number {
 
-}
+            font-size: 10px;
 
-.skill:hover{
+            opacity: .65;
 
-    color:var(--sage);
+            letter-spacing: 2px;
 
-    padding-left:18px;
+            margin-bottom: 8px;
 
-}
+        }
 
-.skill span{
 
-    font-size:10px;
+        .project-title {
 
-    color:var(--muted);
+            font-family: "DM Sans", sans-serif;
 
-    letter-spacing:2px;
+            font-size: 25px;
 
-}
+            font-weight: 600;
 
+        }
 
-/* =========================================================
-   EXPERIENCE
-========================================================= */
 
-.experience{
+        .project-type {
 
-    padding:150px 5vw;
+            font-size: 10px;
 
-    background:var(--sage);
+            opacity: .7;
 
-}
+            margin-top: 5px;
 
-.experience-grid{
+        }
 
-    display:grid;
 
-    grid-template-columns:1fr 1fr;
+        .project-arrow {
 
-    gap:100px;
+            width: 44px;
 
-}
+            height: 44px;
 
-.experience h2{
+            border: 1px solid rgba(255,255,255,.45);
 
-    font-size:clamp(55px,8vw,120px);
+            border-radius: 50%;
 
-    line-height:.82;
+            display: flex;
 
-    letter-spacing:-7px;
+            justify-content: center;
 
-    font-weight:500;
+            align-items: center;
 
-}
+            transition: transform .4s ease;
 
-.experience h2 em{
+        }
 
-    font-family:"Playfair Display",serif;
 
-    color:var(--cream);
+        .project:hover .project-arrow {
 
-}
+            transform: rotate(45deg);
 
-.timeline{
+        }
 
-    border-top:1px solid rgba(29,41,34,.3);
 
-}
+        /* =====================================================
+           AI SECTION
+        ====================================================== */
 
-.timeline-item{
+        .ai-section {
 
-    padding:30px 0;
+            background: var(--green);
 
-    border-bottom:1px solid rgba(29,41,34,.3);
+            color: var(--cream);
 
-}
+            padding: 150px 5vw;
 
-.timeline-year{
+        }
 
-    font-size:10px;
 
-    letter-spacing:2px;
+        .ai-heading {
 
-    margin-bottom:12px;
+            margin-top: 35px;
 
-}
+            font-family: "DM Sans", sans-serif;
 
-.timeline h3{
+            font-size: clamp(55px, 9vw, 130px);
 
-    font-size:18px;
+            line-height: .82;
 
-    margin-bottom:6px;
+            letter-spacing: -7px;
 
-}
+        }
 
-.timeline p{
 
-    font-size:12px;
+        .ai-heading span {
 
-    color:#536057;
+            color: var(--sage-light);
 
-}
+        }
 
 
-/* =========================================================
-   CONTACT
-========================================================= */
+        .workflow {
 
-.contact{
+            margin-top: 100px;
 
-    padding:160px 5vw 70px;
+            display: grid;
 
-    background:var(--cream);
+            grid-template-columns: repeat(5,1fr);
 
-}
+            border-top: 1px solid rgba(244,241,232,.2);
 
-.contact h2{
+        }
 
-    font-size:clamp(70px,13vw,190px);
 
-    line-height:.76;
+        .workflow-item {
 
-    letter-spacing:-10px;
+            padding: 30px 18px;
 
-    font-weight:500;
+            border-right: 1px solid rgba(244,241,232,.2);
 
-}
+        }
 
-.contact h2 em{
 
-    font-family:"Playfair Display",serif;
+        .workflow-item:last-child {
 
-    color:var(--sage);
+            border-right: none;
 
-}
+        }
 
-.contact-links{
 
-    display:flex;
+        .workflow-number {
 
-    gap:12px;
+            color: var(--sage-light);
 
-    flex-wrap:wrap;
+            font-size: 10px;
 
-    margin-top:80px;
+            letter-spacing: 2px;
 
-}
+            margin-bottom: 40px;
 
-.contact-link{
+        }
 
-    padding:14px 22px;
 
-    border:1px solid rgba(29,41,34,.25);
+        .workflow-name {
 
-    border-radius:100px;
+            font-size: 13px;
 
-    font-size:10px;
+            font-weight: 700;
 
-    font-weight:700;
+            letter-spacing: 1px;
 
-    letter-spacing:1px;
+        }
 
-    transition:.35s;
 
-}
+        /* =====================================================
+           ABOUT
+        ====================================================== */
 
-.contact-link:hover{
+        .about {
 
-    background:var(--green);
+            padding: 150px 5vw;
 
-    color:var(--cream);
+            display: grid;
 
-    transform:translateY(-4px);
+            grid-template-columns: .75fr 1.25fr;
 
-}
+            gap: 110px;
 
+            align-items: center;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+        }
 
-footer{
 
-    padding:25px 5vw;
+        .profile {
 
-    background:var(--cream);
+            position: relative;
 
-    border-top:1px solid #D2D0C6;
+        }
 
-    display:flex;
 
-    justify-content:space-between;
+        .profile-frame {
 
-    font-size:9px;
+            aspect-ratio: 4/5;
 
-    letter-spacing:1.5px;
+            overflow: hidden;
 
-    color:var(--muted);
+            background: var(--sage-light);
 
-}
+        }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+        .profile-frame img {
 
-@media(max-width:900px){
+            height: 100%;
 
-    body{
-        cursor:auto;
-    }
+            object-fit: cover;
 
-    .cursor,
-    .cursor-ring{
-        display:none;
-    }
+        }
 
-    .nav{
-        padding:20px 6vw;
-    }
 
-    .nav-links{
-        display:none;
-    }
+        .profile-tag {
 
-    .hero{
+            position: absolute;
 
-        min-height:100svh;
+            bottom: -15px;
 
-        padding:130px 6vw 70px;
+            right: -15px;
 
-    }
+            background: var(--green);
 
-    .hero h1{
+            color: var(--cream);
 
-        font-size:clamp(58px,17vw,105px);
+            padding: 18px 22px;
 
-        letter-spacing:-5px;
+            font-size: 10px;
 
-    }
+            letter-spacing: 2px;
 
-    .hero-art{
+            font-weight: 700;
 
-        width:230px;
+        }
 
-        right:-55px;
 
-        top:30%;
+        .about-title {
 
-        opacity:.55;
+            margin-top: 30px;
 
-    }
+            font-family: "DM Sans", sans-serif;
 
-    .hero-description{
+            font-size: clamp(48px, 6vw, 90px);
 
-        max-width:330px;
+            line-height: .88;
 
-        margin-top:45px;
+            letter-spacing: -5px;
 
-        font-size:14px;
+        }
 
-    }
 
-    .hero-actions{
+        .about-title span {
 
-        flex-wrap:wrap;
+            color: var(--sage-dark);
 
-    }
+        }
 
-    .intro{
 
-        padding:100px 6vw;
+        .about-copy {
 
-        grid-template-columns:1fr;
+            max-width: 620px;
 
-        gap:50px;
+            margin-top: 40px;
 
-    }
+            color: var(--gray);
 
-    .intro h2{
+            line-height: 1.9;
 
-        font-size:clamp(45px,13vw,75px);
+            font-size: 14px;
 
-        letter-spacing:-4px;
+        }
 
-    }
 
-    .section{
+        .details {
 
-        padding:90px 6vw;
+            margin-top: 50px;
 
-    }
+            display: grid;
 
-    .section-top{
+            grid-template-columns: repeat(2,1fr);
 
-        margin-bottom:35px;
+            gap: 30px;
 
-    }
+        }
 
-    .projects{
 
-        grid-template-columns:1fr;
+        .detail {
 
-        gap:15px;
+            border-top: 1px solid var(--border);
 
-    }
+            padding-top: 14px;
 
-    .project:nth-child(n){
+        }
 
-        grid-column:span 1;
 
-    }
+        .detail-label {
 
-    .project{
+            font-size: 9px;
 
-        min-height:72vw;
+            color: var(--sage-dark);
 
-        max-height:520px;
+            letter-spacing: 2px;
 
-    }
+            font-weight: 800;
 
-    .project-info{
+            margin-bottom: 7px;
 
-        opacity:1;
+        }
 
-        transform:none;
 
-    }
+        .detail-value {
 
-    .project-overlay{
+            font-size: 12px;
 
-        opacity:1;
+            font-weight: 600;
 
-    }
+        }
 
-    .ai{
 
-        padding:100px 6vw;
+        /* =====================================================
+           SKILLS
+        ====================================================== */
 
-    }
+        .skills {
 
-    .ai-heading{
+            background: var(--cream-dark);
 
-        font-size:clamp(52px,15vw,90px);
+            padding: 130px 5vw;
 
-        letter-spacing:-5px;
+        }
 
-    }
 
-    .workflow{
+        .skills-list {
 
-        margin-top:70px;
+            margin-top: 65px;
 
-        grid-template-columns:1fr;
+            border-top: 1px solid var(--border);
 
-    }
+        }
 
-    .workflow-item{
 
-        border-right:none;
+        .skill {
 
-        border-bottom:1px solid rgba(244,241,232,.18);
+            display: flex;
 
-        padding:22px 0;
+            justify-content: space-between;
 
-    }
+            align-items: center;
 
-    .workflow-item:last-child{
+            padding: 28px 0;
 
-        border-bottom:none;
+            border-bottom: 1px solid var(--border);
 
-    }
+            font-family: "DM Sans", sans-serif;
 
-    .about{
+            font-size: clamp(28px, 4vw, 58px);
 
-        padding:100px 6vw;
+            letter-spacing: -2px;
 
-        grid-template-columns:1fr;
+            transition:
 
-        gap:60px;
+                color .35s ease,
 
-    }
+                padding-left .35s ease;
 
-    .profile{
+        }
 
-        max-width:500px;
 
-    }
+        .skill:hover {
 
-    .about h2{
+            color: var(--sage-dark);
 
-        font-size:clamp(50px,14vw,85px);
+            padding-left: 15px;
 
-        letter-spacing:-5px;
+        }
 
-    }
 
-    .details{
+        .skill span {
 
-        grid-template-columns:1fr 1fr;
+            font-family: "Manrope", sans-serif;
 
-        gap:20px;
+            font-size: 9px;
 
-    }
+            letter-spacing: 2px;
 
-    .skills{
+            color: var(--gray);
 
-        padding:90px 6vw;
+        }
 
-    }
 
-    .skill{
+        /* =====================================================
+           RESUME
+        ====================================================== */
 
-        font-size:clamp(24px,7vw,42px);
+        .resume {
 
-        letter-spacing:-1px;
+            background: var(--sage);
 
-        padding:20px 0;
+            padding: 140px 5vw;
 
-    }
+            color: var(--green);
 
-    .experience{
+        }
 
-        padding:100px 6vw;
 
-    }
+        .resume-grid {
 
-    .experience-grid{
+            display: grid;
 
-        grid-template-columns:1fr;
+            grid-template-columns: .9fr 1.1fr;
 
-        gap:60px;
+            gap: 100px;
 
-    }
+            margin-top: 60px;
 
-    .experience h2{
+        }
 
-        font-size:clamp(55px,14vw,90px);
 
-        letter-spacing:-5px;
+        .resume-title {
 
-    }
+            font-family: "DM Sans", sans-serif;
 
-    .contact{
+            font-size: clamp(50px, 7vw, 100px);
 
-        padding:110px 6vw 50px;
+            line-height: .82;
 
-    }
+            letter-spacing: -6px;
 
-    .contact h2{
+        }
 
-        font-size:clamp(62px,17vw,110px);
 
-        letter-spacing:-6px;
+        .resume-title span {
 
-    }
+            color: var(--cream);
 
-    .contact-links{
+        }
 
-        margin-top:60px;
 
-    }
+        .experience {
 
-    footer{
+            border-top: 1px solid rgba(24,37,30,.25);
 
-        padding:22px 6vw;
+        }
 
-        flex-direction:column;
 
-        gap:10px;
+        .experience-item {
 
-    }
+            padding: 25px 0;
 
-}
+            border-bottom: 1px solid rgba(24,37,30,.25);
 
-</style>
+        }
+
+
+        .experience-year {
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            font-weight: 800;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .experience-title {
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 20px;
+
+            font-weight: 600;
+
+        }
+
+
+        .experience-place {
+
+            margin-top: 5px;
+
+            font-size: 12px;
+
+            opacity: .65;
+
+        }
+
+
+        .resume-button {
+
+            display: inline-flex;
+
+            margin-top: 45px;
+
+            padding: 15px 23px;
+
+            background: var(--green);
+
+            color: var(--cream);
+
+            border-radius: 100px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            transition: transform .35s ease;
+
+        }
+
+
+        .resume-button:hover {
+
+            transform: translateY(-4px);
+
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ====================================================== */
+
+        .contact {
+
+            padding: 150px 5vw 70px;
+
+            background: var(--cream);
+
+        }
+
+
+        .contact-title {
+
+            margin-top: 30px;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: clamp(65px, 12vw, 170px);
+
+            line-height: .78;
+
+            letter-spacing: -9px;
+
+        }
+
+
+        .contact-title span {
+
+            color: var(--sage-dark);
+
+        }
+
+
+        .contact-links {
+
+            margin-top: 90px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+
+        .contact-link {
+
+            padding: 14px 21px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 100px;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            transition:
+
+                background .3s ease,
+
+                color .3s ease,
+
+                transform .3s ease;
+
+        }
+
+
+        .contact-link:hover {
+
+            background: var(--green);
+
+            color: var(--cream);
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            padding: 25px 5vw;
+
+            background: var(--cream);
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+
+            color: var(--gray);
+
+        }
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ====================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+
+                opacity .9s ease,
+
+                transform .9s cubic-bezier(.2,.8,.2,1);
+
+        }
+
+
+        .reveal.visible {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .hero-art {
+
+                width: 290px;
+
+                right: 2vw;
+
+                top: 30%;
+
+                opacity: .7;
+
+            }
+
+
+            .hero-title {
+
+                font-size: clamp(65px, 13vw, 120px);
+
+            }
+
+
+            .statement {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+            }
+
+
+            .about {
+
+                grid-template-columns: 1fr;
+
+                gap: 70px;
+
+            }
+
+
+            .profile {
+
+                max-width: 500px;
+
+            }
+
+
+            .resume-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 70px;
+
+            }
+
+
+            .workflow {
+
+                grid-template-columns: repeat(2,1fr);
+
+            }
+
+
+            .workflow-item:nth-child(2n) {
+
+                border-right: none;
+
+            }
+
+
+            .workflow-item:nth-child(-n+3) {
+
+                border-bottom: 1px solid rgba(244,241,232,.2);
+
+            }
+
+
+            .projects {
+
+                grid-template-columns: repeat(2,1fr);
+
+            }
+
+
+            .project:nth-child(n) {
+
+                grid-column: span 1;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                cursor: auto;
+
+            }
+
+
+            .cursor {
+
+                display: none;
+
+            }
+
+
+            .nav {
+
+                padding: 18px 5vw;
+
+            }
+
+
+            .nav-right {
+
+                gap: 0;
+
+            }
+
+
+            .nav-link {
+
+                display: none;
+
+            }
+
+
+            .availability {
+
+                font-size: 8px;
+
+            }
+
+
+            .hero {
+
+                min-height: 100svh;
+
+                padding:
+
+                    125px 6vw
+
+                    100px;
+
+                justify-content: flex-start;
+
+            }
+
+
+            .hero-top {
+
+                margin-bottom: 70px;
+
+            }
+
+
+            .hero-title {
+
+                font-size: clamp(58px, 17vw, 90px);
+
+                line-height: .83;
+
+                letter-spacing: -4px;
+
+            }
+
+
+            .hero-title .accent {
+
+                margin-left: 0;
+
+            }
+
+
+            /*
+               IMPORTANT:
+               Hero visual stays ABOVE / BESIDE typography
+               and never hides behind it on mobile.
+            */
+
+            .hero-art {
+
+                position: relative;
+
+                width: min(67vw, 280px);
+
+                height: auto;
+
+                aspect-ratio: 1;
+
+                right: auto;
+
+                top: auto;
+
+                margin:
+
+                    55px
+
+                    auto
+
+                    0;
+
+                opacity: 1;
+
+                order: 5;
+
+            }
+
+
+            .hero-bottom {
+
+                margin-top: 45px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 30px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 13px;
+
+            }
+
+
+            .scroll {
+
+                display: none;
+
+            }
+
+
+            .statement {
+
+                padding: 95px 6vw;
+
+            }
+
+
+            .statement-title {
+
+                font-size: clamp(43px, 12vw, 65px);
+
+                letter-spacing: -3px;
+
+            }
+
+
+            .section,
+
+            .skills,
+
+            .resume,
+
+            .contact {
+
+                padding-left: 6vw;
+
+                padding-right: 6vw;
+
+            }
+
+
+            .section {
+
+                padding-top: 95px;
+
+                padding-bottom: 95px;
+
+            }
+
+
+            .section-head {
+
+                margin-bottom: 35px;
+
+            }
+
+
+            .projects {
+
+                display: block;
+
+            }
+
+
+            .project {
+
+                min-height: 420px;
+
+                margin-bottom: 18px;
+
+            }
+
+
+            .project-title {
+
+                font-size: 20px;
+
+            }
+
+
+            .ai-section {
+
+                padding:
+
+                    100px 6vw;
+
+            }
+
+
+            .ai-heading {
+
+                font-size: clamp(55px, 15vw, 85px);
+
+                letter-spacing: -5px;
+
+            }
+
+
+            .workflow {
+
+                grid-template-columns: 1fr;
+
+                margin-top: 65px;
+
+            }
+
+
+            .workflow-item {
+
+                border-right: none !important;
+
+                border-bottom: 1px solid rgba(244,241,232,.2);
+
+            }
+
+
+            .workflow-item:last-child {
+
+                border-bottom: none;
+
+            }
+
+
+            .about {
+
+                padding:
+
+                    100px 6vw;
+
+            }
+
+
+            .profile {
+
+                width: 88%;
+
+            }
+
+
+            .profile-tag {
+
+                right: -8px;
+
+            }
+
+
+            .about-title {
+
+                font-size: clamp(48px, 14vw, 70px);
+
+                letter-spacing: -4px;
+
+            }
+
+
+            .details {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+            }
+
+
+            .skills {
+
+                padding-top: 95px;
+
+                padding-bottom: 95px;
+
+            }
+
+
+            .skill {
+
+                font-size: clamp(24px, 8vw, 42px);
+
+                padding: 23px 0;
+
+            }
+
+
+            .resume {
+
+                padding-top: 100px;
+
+                padding-bottom: 100px;
+
+            }
+
+
+            .resume-title {
+
+                font-size: clamp(50px, 14vw, 75px);
+
+            }
+
+
+            .contact {
+
+                padding-top: 110px;
+
+                padding-bottom: 55px;
+
+            }
+
+
+            .contact-title {
+
+                font-size: clamp(60px, 17vw, 95px);
+
+                letter-spacing: -5px;
+
+            }
+
+
+            .contact-links {
+
+                margin-top: 60px;
+
+            }
+
+
+            footer {
+
+                padding:
+
+                    22px 6vw;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+
+    </style>
 
 </head>
 
@@ -1611,992 +2135,1156 @@ footer{
 <body>
 
 
-<!-- CUSTOM CURSOR -->
+    <!-- =====================================================
+         CUSTOM CURSOR
+    ====================================================== -->
 
-<div class="cursor"></div>
-<div class="cursor-ring"></div>
+    <div class="cursor"></div>
 
 
-<!-- ========================================================
-     NAV
-======================================================== -->
 
-<nav class="nav">
+    <!-- =====================================================
+         NAV
+    ====================================================== -->
 
-    <div class="logo">
-        FARSHAD FATEMIFAR
-    </div>
+    <nav class="nav">
 
-    <ul class="nav-links">
-
-        <li>
-            <a href="#work">WORK</a>
-        </li>
-
-        <li>
-            <a href="#about">ABOUT</a>
-        </li>
-
-        <li>
-            <a href="#skills">SKILLS</a>
-        </li>
-
-        <li>
-            <a href="#contact">CONTACT</a>
-        </li>
-
-    </ul>
-
-</nav>
-
-
-<!-- ========================================================
-     HERO
-======================================================== -->
-
-<section class="hero">
-
-    <div class="hero-eyebrow">
-        GRAPHIC DESIGNER / AI CREATOR
-    </div>
-
-
-    <h1>
-
-        FARSHAD
-
-        <br>
-
-        <em>FATEMIFAR</em>
-
-    </h1>
-
-
-    <p class="hero-description">
-
-        I create visual experiences where
-        graphic design, artificial intelligence
-        and creative direction meet.
-
-    </p>
-
-
-    <div class="hero-actions">
-
-        <a href="#work" class="btn btn-primary">
-            EXPLORE WORK
-        </a>
-
-        <a href="#about" class="btn btn-outline">
-            ABOUT ME
-        </a>
-
-    </div>
-
-
-    <div class="hero-art">
-
-        <div class="art-ring"></div>
-
-        <div class="art-circle"></div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================
-     MARQUEE
-======================================================== -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-        <span>GRAPHIC DESIGN</span>
-        <span>AI CREATION</span>
-        <span>CREATIVE DIRECTION</span>
-        <span>VISUAL STORYTELLING</span>
-
-        <span>GRAPHIC DESIGN</span>
-        <span>AI CREATION</span>
-        <span>CREATIVE DIRECTION</span>
-        <span>VISUAL STORYTELLING</span>
-
-    </div>
-
-</div>
-
-
-<!-- ========================================================
-     INTRO
-======================================================== -->
-
-<section class="intro">
-
-    <h2>
-
-        TURNING
-
-        <br>
-
-        IDEAS INTO
-
-        <br>
-
-        <em>VISUALS.</em>
-
-    </h2>
-
-
-    <div class="intro-copy">
-
-        I'm a graphic designer and AI creator
-        focused on advertising, digital content,
-        visual storytelling and experimental
-        AI-driven creation.
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================
-     WORK
-======================================================== -->
-
-<section class="section" id="work">
-
-    <div class="section-top">
-
-        <div class="section-label">
-            01 — SELECTED WORK
-        </div>
-
-        <div class="section-label">
-            06 PROJECTS
-        </div>
-
-    </div>
-
-
-    <div class="projects">
-
-
-        <!-- PROJECT 01 -->
-
-        <article class="project">
-
-            <!--
-            REPLACE PLACEHOLDER WITH:
-
-            <img
-                class="project-media"
-                src="assets/images/project-01.jpg"
-                alt="AI Advertising"
-            >
-            -->
-
-            <div class="project-placeholder">
-                PROJECT 01
-            </div>
-
-            <div class="project-overlay"></div>
-
-            <div class="project-info">
-
-                <div>
-
-                    <h3>
-                        AI ADVERTISING
-                    </h3>
-
-                    <p>
-                        Creative Campaign
-                    </p>
-
-                </div>
-
-                <div class="project-arrow">
-                    ↗
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- PROJECT 02 -->
-
-        <article class="project">
-
-            <!--
-            <img
-                class="project-media"
-                src="assets/images/project-02.jpg"
-                alt="Graphic Design"
-            >
-            -->
-
-            <div class="project-placeholder">
-                PROJECT 02
-            </div>
-
-            <div class="project-overlay"></div>
-
-            <div class="project-info">
-
-                <div>
-
-                    <h3>
-                        GRAPHIC DESIGN
-                    </h3>
-
-                    <p>
-                        Visual Campaign
-                    </p>
-
-                </div>
-
-                <div class="project-arrow">
-                    ↗
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- PROJECT 03 -->
-
-        <article class="project">
-
-            <!--
-            <video
-                class="project-media"
-                autoplay
-                muted
-                loop
-                playsinline
-            >
-
-                <source
-                    src="assets/videos/project-01.mp4"
-                    type="video/mp4"
-                >
-
-            </video>
-            -->
-
-            <div class="project-placeholder">
-                PROJECT 03 — VIDEO
-            </div>
-
-            <div class="project-overlay"></div>
-
-            <div class="project-info">
-
-                <div>
-
-                    <h3>
-                        AI VIDEO
-                    </h3>
-
-                    <p>
-                        Commercial
-                    </p>
-
-                </div>
-
-                <div class="project-arrow">
-                    ↗
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- PROJECT 04 -->
-
-        <article class="project">
-
-            <!--
-            <img
-                class="project-media"
-                src="assets/images/project-04.jpg"
-                alt="AI Visual"
-            >
-            -->
-
-            <div class="project-placeholder">
-                PROJECT 04
-            </div>
-
-            <div class="project-overlay"></div>
-
-            <div class="project-info">
-
-                <div>
-
-                    <h3>
-                        AI VISUALS
-                    </h3>
-
-                    <p>
-                        Art Direction
-                    </p>
-
-                </div>
-
-                <div class="project-arrow">
-                    ↗
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- PROJECT 05 -->
-
-        <article class="project">
-
-            <!--
-            <img
-                class="project-media"
-                src="assets/images/project-05.jpg"
-                alt="Poster Design"
-            >
-            -->
-
-            <div class="project-placeholder">
-                PROJECT 05
-            </div>
-
-            <div class="project-overlay"></div>
-
-            <div class="project-info">
-
-                <div>
-
-                    <h3>
-                        POSTER DESIGN
-                    </h3>
-
-                    <p>
-                        Graphic Design
-                    </p>
-
-                </div>
-
-                <div class="project-arrow">
-                    ↗
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- PROJECT 06 -->
-
-        <article class="project">
-
-            <!--
-            <video
-                class="project-media"
-                autoplay
-                muted
-                loop
-                playsinline
-            >
-
-                <source
-                    src="assets/videos/project-02.mp4"
-                    type="video/mp4"
-                >
-
-            </video>
-            -->
-
-            <div class="project-placeholder">
-                PROJECT 06 — VIDEO
-            </div>
-
-            <div class="project-overlay"></div>
-
-            <div class="project-info">
-
-                <div>
-
-                    <h3>
-                        AI COMMERCIAL
-                    </h3>
-
-                    <p>
-                        Creative Direction
-                    </p>
-
-                </div>
-
-                <div class="project-arrow">
-                    ↗
-                </div>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================
-     AI CREATION
-======================================================== -->
-
-<section class="ai">
-
-    <div class="section-label">
-        02 — AI CREATION
-    </div>
-
-
-    <h2 class="ai-heading">
-
-        FROM IDEA
-
-        <br>
-
-        TO
-
-        <em>VISUAL.</em>
-
-    </h2>
-
-
-    <div class="workflow">
-
-        <div class="workflow-item">
-
-            <div class="workflow-number">
-                01
-            </div>
-
-            <div class="workflow-title">
-                CONCEPT
-            </div>
-
-        </div>
-
-
-        <div class="workflow-item">
-
-            <div class="workflow-number">
-                02
-            </div>
-
-            <div class="workflow-title">
-                PROMPT
-            </div>
-
-        </div>
-
-
-        <div class="workflow-item">
-
-            <div class="workflow-number">
-                03
-            </div>
-
-            <div class="workflow-title">
-                GENERATION
-            </div>
-
-        </div>
-
-
-        <div class="workflow-item">
-
-            <div class="workflow-number">
-                04
-            </div>
-
-            <div class="workflow-title">
-                ART DIRECTION
-            </div>
-
-        </div>
-
-
-        <div class="workflow-item">
-
-            <div class="workflow-number">
-                05
-            </div>
-
-            <div class="workflow-title">
-                FINAL VISUAL
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================
-     ABOUT
-======================================================== -->
-
-<section class="about" id="about">
-
-
-    <div class="profile">
-
-        <!--
-        REPLACE WITH:
-
-        <img
-            src="assets/images/profile.jpg"
-            alt="Farshad Fatemifar"
+        <a
+            href="#"
+            class="brand"
         >
-        -->
+            FF.
+        </a>
 
-        <div class="profile-placeholder">
-            YOUR PORTRAIT
+
+        <div class="nav-right">
+
+            <div class="availability">
+
+                <span class="availability-dot"></span>
+
+                AVAILABLE FOR WORK
+
+            </div>
+
+
+            <a
+                href="#work"
+                class="nav-link"
+            >
+                WORK
+            </a>
+
+
+            <a
+                href="#about"
+                class="nav-link"
+            >
+                ABOUT
+            </a>
+
+
+            <a
+                href="#contact"
+                class="nav-link"
+            >
+                CONTACT
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-top">
+
+            <div class="eyebrow">
+
+                GRAPHIC DESIGNER
+                /
+                AI CREATOR
+
+            </div>
+
+
+            <div class="hero-index">
+
+                01 — 06
+
+            </div>
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+            <span class="line">
+                FARSHAD
+            </span>
+
+            <span class="line accent">
+                FATEMIFAR
+            </span>
+
+        </h1>
+
+
+        <!-- HERO ART -->
+
+        <div class="hero-art">
+
+            <div class="hero-art-ring"></div>
+
+            <div class="hero-art-circle"></div>
+
+        </div>
+
+
+        <div class="hero-bottom">
+
+
+            <p class="hero-description">
+
+                Visual designer exploring the space
+                between graphic design, artificial
+                intelligence and creative direction.
+
+            </p>
+
+
+            <a
+                href="#work"
+                class="hero-cta"
+            >
+
+                EXPLORE WORK
+
+                <span class="cta-circle">
+                    ↘
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+        <div class="scroll">
+
+            <span class="scroll-line"></span>
+
+            SCROLL TO EXPLORE
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MARQUEE
+    ====================================================== -->
+
+    <div class="marquee">
+
+        <div class="marquee-track">
+
+            <span>GRAPHIC DESIGN</span>
+
+            <span>AI CREATION</span>
+
+            <span>CREATIVE DIRECTION</span>
+
+            <span>VISUAL STORYTELLING</span>
+
+            <span>GRAPHIC DESIGN</span>
+
+            <span>AI CREATION</span>
+
+            <span>CREATIVE DIRECTION</span>
+
+            <span>VISUAL STORYTELLING</span>
+
         </div>
 
     </div>
 
 
-    <div>
 
-        <div class="section-label">
-            03 — ABOUT ME
-        </div>
+    <!-- =====================================================
+         STATEMENT
+    ====================================================== -->
+
+    <section class="statement reveal">
 
 
-        <h2>
+        <h2 class="statement-title">
 
-            HELLO,
+            I TURN
 
-            <br>
+            <span>IDEAS</span>
 
-            I'M
+            INTO
 
-            <em>FARSHAD.</em>
+            <span>VISUAL EXPERIENCES.</span>
 
         </h2>
 
 
-        <p class="about-copy">
+        <p class="statement-copy">
 
-            I'm Farshad Fatemifar, a graphic designer
-            and AI creator focused on creating visual
-            experiences through design, technology
-            and creative experimentation.
-
-            <br><br>
-
-            My work combines graphic design with
-            AI-generated imagery, video and creative
-            direction to transform ideas into
-            distinctive visual content.
+            From visual identities and advertising campaigns
+            to AI-generated imagery and cinematic video,
+            I combine design thinking with emerging
+            creative technologies.
 
         </p>
 
-
-        <div class="details">
-
-
-            <div class="detail">
-
-                <span>
-                    SPECIALIZATION
-                </span>
-
-                <strong>
-                    Graphic Design + AI
-                </strong>
-
-            </div>
+    </section>
 
 
-            <div class="detail">
 
-                <span>
-                    EXPERIENCE
-                </span>
+    <!-- =====================================================
+         WORK
+    ====================================================== -->
 
-                <strong>
-                    2+ Years
-                </strong>
+    <section
+        class="section"
+        id="work"
+    >
+
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+
+                02 — SELECTED WORK
 
             </div>
 
 
-            <div class="detail">
+            <div class="section-count">
 
-                <span>
-                    EDUCATION
-                </span>
-
-                <strong>
-                    Artificial Intelligence
-                </strong>
+                06 PROJECTS
 
             </div>
 
+        </div>
 
-            <div class="detail">
 
-                <span>
-                    BASE
-                </span>
+        <div class="projects">
 
-                <strong>
-                    Shiraz, Iran
-                </strong>
 
-            </div>
+            <!-- PROJECT 01 -->
+
+            <article class="project reveal">
+
+                <img
+                    src="assets/images/project-01.jpg"
+                    class="project-media"
+                    alt="AI Advertising Project"
+                >
+
+                <div class="project-overlay"></div>
+
+
+                <div class="project-meta">
+
+                    <div>
+
+                        <div class="project-number">
+                            01 / 06
+                        </div>
+
+                        <h3 class="project-title">
+                            AI ADVERTISING
+                        </h3>
+
+                        <p class="project-type">
+                            Creative Campaign
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 02 -->
+
+            <article class="project reveal">
+
+                <img
+                    src="assets/images/project-02.jpg"
+                    class="project-media"
+                    alt="Graphic Design Project"
+                >
+
+                <div class="project-overlay"></div>
+
+
+                <div class="project-meta">
+
+                    <div>
+
+                        <div class="project-number">
+                            02 / 06
+                        </div>
+
+                        <h3 class="project-title">
+                            GRAPHIC DESIGN
+                        </h3>
+
+                        <p class="project-type">
+                            Campaign / Poster
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 03 -->
+
+            <article class="project reveal">
+
+                <img
+                    src="assets/images/project-03.jpg"
+                    class="project-media"
+                    alt="AI Visual Project"
+                >
+
+                <div class="project-overlay"></div>
+
+
+                <div class="project-meta">
+
+                    <div>
+
+                        <div class="project-number">
+                            03 / 06
+                        </div>
+
+                        <h3 class="project-title">
+                            AI VISUALS
+                        </h3>
+
+                        <p class="project-type">
+                            Art Direction
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 04 -->
+
+            <article class="project reveal">
+
+                <img
+                    src="assets/images/project-04.jpg"
+                    class="project-media"
+                    alt="Visual Campaign Project"
+                >
+
+                <div class="project-overlay"></div>
+
+
+                <div class="project-meta">
+
+                    <div>
+
+                        <div class="project-number">
+                            04 / 06
+                        </div>
+
+                        <h3 class="project-title">
+                            VISUAL CAMPAIGN
+                        </h3>
+
+                        <p class="project-type">
+                            Creative Direction
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 05 -->
+
+            <article class="project reveal">
+
+                <img
+                    src="assets/images/project-05.jpg"
+                    class="project-media"
+                    alt="Poster Design Project"
+                >
+
+                <div class="project-overlay"></div>
+
+
+                <div class="project-meta">
+
+                    <div>
+
+                        <div class="project-number">
+                            05 / 06
+                        </div>
+
+                        <h3 class="project-title">
+                            POSTER DESIGN
+                        </h3>
+
+                        <p class="project-type">
+                            Graphic Design
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 06 -->
+
+            <article class="project reveal">
+
+                <img
+                    src="assets/images/project-06.jpg"
+                    class="project-media"
+                    alt="AI Creative Project"
+                >
+
+                <div class="project-overlay"></div>
+
+
+                <div class="project-meta">
+
+                    <div>
+
+                        <div class="project-number">
+                            06 / 06
+                        </div>
+
+                        <h3 class="project-title">
+                            AI CREATIVE
+                        </h3>
+
+                        <p class="project-type">
+                            Experimental
+                        </p>
+
+                    </div>
+
+
+                    <div class="project-arrow">
+                        ↗
+                    </div>
+
+                </div>
+
+            </article>
 
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ========================================================
-     SKILLS
-======================================================== -->
 
-<section class="skills" id="skills">
+    <!-- =====================================================
+         AI PROCESS
+    ====================================================== -->
 
-    <div class="section-label">
-        04 — SKILLS
-    </div>
+    <section class="ai-section">
 
 
-    <div class="skill-list">
-
-
-        <div class="skill">
-
-            GRAPHIC DESIGN
-
-            <span>01</span>
-
+        <div class="section-label">
+            03 — CREATIVE PROCESS
         </div>
 
 
-        <div class="skill">
+        <h2 class="ai-heading">
 
-            AI IMAGE GENERATION
-
-            <span>02</span>
-
-        </div>
-
-
-        <div class="skill">
-
-            AI VIDEO
-
-            <span>03</span>
-
-        </div>
-
-
-        <div class="skill">
-
-            CREATIVE DIRECTION
-
-            <span>04</span>
-
-        </div>
-
-
-        <div class="skill">
-
-            VISUAL STORYTELLING
-
-            <span>05</span>
-
-        </div>
-
-
-        <div class="skill">
-
-            PROMPT ENGINEERING
-
-            <span>06</span>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================
-     EXPERIENCE
-======================================================== -->
-
-<section class="experience">
-
-    <div class="section-label">
-        05 — EXPERIENCE
-    </div>
-
-
-    <div class="experience-grid">
-
-
-        <h2>
-
-            EXPERIENCE
+            FROM IDEA
 
             <br>
 
-            &
+            TO
 
-            <em>RESUME.</em>
+            <span>VISUAL.</span>
 
         </h2>
 
 
-        <div class="timeline">
+        <div class="workflow">
 
 
-            <div class="timeline-item">
+            <div class="workflow-item">
 
-                <div class="timeline-year">
-                    2024 — 2026
+                <div class="workflow-number">
+                    01
                 </div>
 
-                <h3>
-                    GRAPHIC DESIGNER
-                </h3>
-
-                <p>
-                    International Company
-                </p>
+                <div class="workflow-name">
+                    CONCEPT
+                </div>
 
             </div>
 
 
-            <div class="timeline-item">
+            <div class="workflow-item">
 
-                <div class="timeline-year">
-                    2025 — PRESENT
+                <div class="workflow-number">
+                    02
                 </div>
 
-                <h3>
-                    AI CREATOR
-                </h3>
-
-                <p>
-                    AI Visuals / Advertising / Video
-                </p>
+                <div class="workflow-name">
+                    DIRECTION
+                </div>
 
             </div>
 
 
-            <div class="timeline-item">
+            <div class="workflow-item">
 
-                <div class="timeline-year">
-                    PRESENT
+                <div class="workflow-number">
+                    03
                 </div>
 
-                <h3>
-                    MASTER'S IN ARTIFICIAL INTELLIGENCE
-                </h3>
+                <div class="workflow-name">
+                    GENERATION
+                </div>
 
-                <p>
-                    Artificial Intelligence
-                </p>
+            </div>
+
+
+            <div class="workflow-item">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <div class="workflow-name">
+                    REFINEMENT
+                </div>
+
+            </div>
+
+
+            <div class="workflow-item">
+
+                <div class="workflow-number">
+                    05
+                </div>
+
+                <div class="workflow-name">
+                    FINAL VISUAL
+                </div>
 
             </div>
 
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- ========================================================
-     CONTACT
-======================================================== -->
 
-<section class="contact" id="contact">
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
 
-    <div class="section-label">
-        06 — GET IN TOUCH
-    </div>
-
-
-    <h2>
-
-        LET'S
-
-        <br>
-
-        <em>CREATE.</em>
-
-    </h2>
+    <section
+        class="about"
+        id="about"
+    >
 
 
-    <div class="contact-links">
+        <div class="profile reveal">
 
-        <a
-            href="mailto:your@email.com"
-            class="contact-link"
-        >
-            EMAIL ↗
-        </a>
+            <div class="profile-frame">
 
+                <img
+                    src="assets/images/profile.jpg"
+                    alt="Farshad Fatemifar"
+                >
 
-        <a
-            href="#"
-            class="contact-link"
-        >
-            INSTAGRAM ↗
-        </a>
+            </div>
 
 
-        <a
-            href="#"
-            class="contact-link"
-        >
-            LINKEDIN ↗
-        </a>
+            <div class="profile-tag">
+
+                FARSHAD / AI CREATOR
+
+            </div>
+
+        </div>
 
 
-        <a
-            href="#"
-            class="contact-link"
-        >
-            GITHUB ↗
-        </a>
 
-    </div>
-
-</section>
+        <div class="reveal">
 
 
-<!-- ========================================================
-     FOOTER
-======================================================== -->
+            <div class="section-label">
 
-<footer>
+                04 — ABOUT ME
 
-    <span>
-        © 2026 FARSHAD FATEMIFAR
-    </span>
-
-    <span>
-        GRAPHIC DESIGNER / AI CREATOR
-    </span>
-
-</footer>
+            </div>
 
 
-<script>
+            <h2 class="about-title">
 
-/* =========================================================
-   CUSTOM CURSOR
-========================================================= */
+                HELLO,
 
-const cursor = document.querySelector(".cursor");
-const ring = document.querySelector(".cursor-ring");
+                <br>
 
-document.addEventListener("mousemove", e => {
+                I'M
 
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+                <span>FARSHAD.</span>
 
-    ring.style.left = e.clientX + "px";
-    ring.style.top = e.clientY + "px";
-
-});
+            </h2>
 
 
-document.querySelectorAll("a, .project, .skill").forEach(el => {
+            <p class="about-copy">
 
-    el.addEventListener("mouseenter", () => {
+                I'm Farshad Fatemifar, a graphic designer
+                and AI creator focused on building distinctive
+                visual experiences.
 
-        cursor.classList.add("active");
-        ring.classList.add("active");
+                <br><br>
 
-    });
+                My work combines graphic design, AI-generated
+                imagery, video and creative direction to
+                transform ideas into compelling visual content.
 
-    el.addEventListener("mouseleave", () => {
-
-        cursor.classList.remove("active");
-        ring.classList.remove("active");
-
-    });
-
-});
+            </p>
 
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
+            <div class="details">
 
-const observer = new IntersectionObserver(
 
-    entries => {
+                <div class="detail">
 
-        entries.forEach(entry => {
+                    <div class="detail-label">
+                        SPECIALIZATION
+                    </div>
 
-            if(entry.isIntersecting){
+                    <div class="detail-value">
+                        Graphic Design + AI
+                    </div>
 
-                entry.target.style.opacity = "1";
+                </div>
 
-                entry.target.style.transform =
-                    "translateY(0)";
 
-            }
+                <div class="detail">
+
+                    <div class="detail-label">
+                        EXPERIENCE
+                    </div>
+
+                    <div class="detail-value">
+                        2+ Years
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        EDUCATION
+                    </div>
+
+                    <div class="detail-value">
+                        Artificial Intelligence
+                    </div>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <div class="detail-label">
+                        LOCATION
+                    </div>
+
+                    <div class="detail-value">
+                        Shiraz, Iran
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SKILLS
+    ====================================================== -->
+
+    <section
+        class="skills"
+        id="skills"
+    >
+
+
+        <div class="section-label">
+            05 — EXPERTISE
+        </div>
+
+
+        <div class="skills-list">
+
+
+            <div class="skill">
+
+                <div>
+                    GRAPHIC DESIGN
+                </div>
+
+                <span>
+                    01
+                </span>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div>
+                    AI IMAGE GENERATION
+                </div>
+
+                <span>
+                    02
+                </span>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div>
+                    AI VIDEO
+                </div>
+
+                <span>
+                    03
+                </span>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div>
+                    CREATIVE DIRECTION
+                </div>
+
+                <span>
+                    04
+                </span>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div>
+                    VISUAL STORYTELLING
+                </div>
+
+                <span>
+                    05
+                </span>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div>
+                    PROMPT ENGINEERING
+                </div>
+
+                <span>
+                    06
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+
+    <section class="resume">
+
+
+        <div class="section-label">
+
+            06 — EXPERIENCE
+
+        </div>
+
+
+        <div class="resume-grid">
+
+
+            <div>
+
+                <h2 class="resume-title">
+
+                    EXPERIENCE
+
+                    <br>
+
+                    <span>& RESUME.</span>
+
+                </h2>
+
+
+                <a
+                    href="#"
+                    class="resume-button"
+                >
+                    DOWNLOAD RESUME →
+                </a>
+
+            </div>
+
+
+            <div class="experience">
+
+
+                <div class="experience-item">
+
+                    <div class="experience-year">
+                        2024 — 2026
+                    </div>
+
+                    <div class="experience-title">
+                        GRAPHIC DESIGNER
+                    </div>
+
+                    <div class="experience-place">
+                        International Company
+                    </div>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <div class="experience-year">
+                        2025 — PRESENT
+                    </div>
+
+                    <div class="experience-title">
+                        AI CREATOR
+                    </div>
+
+                    <div class="experience-place">
+                        AI Visuals / Advertising / Video
+                    </div>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <div class="experience-year">
+                        PRESENT
+                    </div>
+
+                    <div class="experience-title">
+                        MASTER'S IN ARTIFICIAL INTELLIGENCE
+                    </div>
+
+                    <div class="experience-place">
+                        Artificial Intelligence
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section
+        class="contact"
+        id="contact"
+    >
+
+
+        <div class="section-label">
+
+            07 — LET'S TALK
+
+        </div>
+
+
+        <h2 class="contact-title">
+
+            HAVE
+
+            <br>
+
+            AN <span>IDEA?</span>
+
+        </h2>
+
+
+        <div class="contact-links">
+
+
+            <a
+                href="mailto:farshadfatemifar1@gmail.com"
+                class="contact-link"
+            >
+                EMAIL ↗
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/freddy__ai/"
+                class="contact-link"
+            >
+                INSTAGRAM ↗
+            </a>
+
+
+            <a
+                href="#"
+                class="contact-link"
+            >
+                LINKEDIN ↗
+            </a>
+
+
+            <a
+                href="https://github.com/farshad-fatemifar"
+                class="contact-link"
+            >
+                GITHUB ↗
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div>
+            © 2026 FARSHAD FATEMIFAR
+        </div>
+
+
+        <div>
+            GRAPHIC DESIGNER / AI CREATOR
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           CUSTOM CURSOR
+        ====================================================== */
+
+        const cursor = document.querySelector(".cursor");
+
+
+        document.addEventListener("mousemove", (e) => {
+
+            cursor.style.left = e.clientX + "px";
+
+            cursor.style.top = e.clientY + "px";
 
         });
 
-    },
 
-    {
-        threshold:.12
-    }
+        document.querySelectorAll("a, .project, .skill").forEach((item) => {
 
-);
+            item.addEventListener("mouseenter", () => {
+
+                cursor.classList.add("active");
+
+            });
 
 
-document.querySelectorAll(
-    ".intro, .section, .ai, .about, .skills, .experience, .contact"
-).forEach(el => {
+            item.addEventListener("mouseleave", () => {
 
-    el.style.opacity = "0";
+                cursor.classList.remove("active");
 
-    el.style.transform = "translateY(35px)";
+            });
 
-    el.style.transition =
-        "opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)";
+        });
 
-    observer.observe(el);
 
-});
 
-</script>
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const observer = new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+
+            observer.observe(element);
+
+        });
+
+
+
+        /* =====================================================
+           IMAGE PARALLAX
+        ====================================================== */
+
+        const projects = document.querySelectorAll(".project");
+
+
+        window.addEventListener("scroll", () => {
+
+            projects.forEach((project) => {
+
+                const rect = project.getBoundingClientRect();
+
+                const image = project.querySelector(".project-media");
+
+                if (!image) return;
+
+
+                if (
+                    rect.top < window.innerHeight &&
+                    rect.bottom > 0
+                ) {
+
+                    const progress =
+                        (window.innerHeight - rect.top) /
+                        (window.innerHeight + rect.height);
+
+                    const movement =
+                        (progress - 0.5) * 15;
+
+                    image.style.transform =
+                        `scale(1.04) translateY(${movement}px)`;
+
+                }
+
+            });
+
+        });
+
+
+    </script>
 
 
 </body>
+
 </html>
