@@ -1,8 +1,8 @@
-<link rel="icon" type="image/png" href="assets/favicon.png">
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap"
     rel="stylesheet"
   />
 
@@ -181,7 +181,7 @@
     }
 
     .nav-logo {
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: 13px;
       font-weight: 800;
@@ -193,6 +193,28 @@
       display: flex;
       align-items: center;
       gap: 30px;
+    }
+
+    .nav-toggle {
+      display: none;
+
+      width: 34px;
+      height: 34px;
+
+      align-items: center;
+      justify-content: center;
+
+      border: none;
+      background: none;
+
+      color: var(--ink);
+
+      cursor: pointer;
+    }
+
+    .nav-toggle svg {
+      width: 20px;
+      height: 20px;
     }
 
     .nav-links a {
@@ -299,7 +321,7 @@
     .hero-title {
       max-width: 900px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         58px,
@@ -506,7 +528,7 @@
       transform:
         translate(-50%, -50%);
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: 190px;
 
@@ -635,7 +657,7 @@
 
       white-space: nowrap;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: 13px;
 
@@ -675,7 +697,7 @@
     .intro-text {
       max-width: 1150px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         34px,
@@ -713,7 +735,7 @@
     .section-title {
       margin-top: 25px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         48px,
@@ -743,14 +765,9 @@
     ========================================================= */
 
     .work-grid {
-      display: grid;
+      column-count: 2;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      gap: 24px;
-
-      align-items: start;
+      column-gap: 24px;
     }
 
     .project {
@@ -764,6 +781,14 @@
 
       border:
         1px solid rgba(29,36,31,0.08);
+
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+
+      display: inline-block;
+      width: 100%;
+
+      margin-bottom: 24px;
     }
 
     .project-media {
@@ -818,15 +843,31 @@
     .project-info {
       display: flex;
 
+      flex-direction: column;
+
+      gap: 14px;
+
+      padding: 22px;
+    }
+
+    .project-info-top {
+      display: flex;
+
       justify-content: space-between;
 
-      align-items: center;
+      align-items: flex-start;
 
       gap: 25px;
+    }
 
-      min-height: 84px;
+    .project-description {
+      max-width: 460px;
 
-      padding: 20px 22px;
+      color: var(--muted);
+
+      font-size: 12.5px;
+
+      line-height: 1.7;
     }
 
     .project-number {
@@ -842,7 +883,7 @@
     .project-name {
       margin-top: 5px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: 18px;
 
@@ -1096,7 +1137,7 @@
     .motion-title {
       color: var(--cream-light);
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         32px,
@@ -1241,6 +1282,59 @@
     }
 
     /* =========================================================
+       STATS / CREDIBILITY
+    ========================================================= */
+
+    .stats {
+      padding: 90px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 40px;
+
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
+      padding: 55px 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: "Bricolage Grotesque", sans-serif;
+
+      font-size: clamp(38px, 5vw, 58px);
+
+      font-weight: 800;
+
+      letter-spacing: -0.04em;
+
+      color: var(--sage-dark);
+    }
+
+    .stat-label {
+      margin-top: 10px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.6;
+
+      max-width: 220px;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =========================================================
        EXPERTISE
     ========================================================= */
 
@@ -1296,7 +1390,7 @@
     .expertise-name {
       margin-top: 14px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         25px,
@@ -1467,7 +1561,7 @@
     .about-title {
       margin-top: 35px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         48px,
@@ -1608,7 +1702,7 @@
     }
 
     .experience-role {
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: 22px;
 
@@ -1711,7 +1805,7 @@
 
       max-width: 900px;
 
-      font-family: "Manrope", sans-serif;
+      font-family: "Bricolage Grotesque", sans-serif;
 
       font-size: clamp(
         48px,
@@ -2055,8 +2149,46 @@
           17px;
       }
 
+      .nav-toggle {
+        display: flex;
+      }
+
       .nav-links {
         display: none;
+
+        position: absolute;
+
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 2px;
+
+        padding: 14px 18px;
+
+        border-radius: 22px;
+
+        background: rgba(245,241,231,0.97);
+
+        border: 1px solid rgba(255,255,255,0.3);
+
+        box-shadow:
+          0 20px 50px rgba(29,36,31,0.14);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+
+        padding: 9px 0;
+
+        font-size: 13px;
       }
 
       .nav-logo {
@@ -2229,17 +2361,17 @@
       /* WORK */
 
       .work-grid {
-        grid-template-columns: 1fr;
-
-        gap: 18px;
+        column-count: 1;
       }
 
       .project {
         border-radius: 21px;
+
+        margin-bottom: 18px;
       }
 
       .project-info {
-        min-height: 75px;
+        gap: 12px;
 
         padding:
           16px
@@ -2252,6 +2384,10 @@
 
       .project-type {
         font-size: 8px;
+      }
+
+      .project-description {
+        font-size: 11.5px;
       }
 
       .video-play {
@@ -2298,6 +2434,20 @@
 
         right: 12px;
         top: 12px;
+      }
+
+      /* STATS */
+
+      .stats {
+        padding: 50px 0;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 40px 0;
       }
 
       /* EXPERTISE */
@@ -2499,7 +2649,21 @@
       FARSHAD FATEMIFAR
     </a>
 
-    <div class="nav-links">
+    <button
+      class="nav-toggle"
+      id="navToggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M4 7h16" />
+        <path d="M4 12h16" />
+        <path d="M4 17h16" />
+      </svg>
+    </button>
+
+    <div class="nav-links" id="navLinks">
 
       <a href="#work">
         Work
@@ -2794,21 +2958,31 @@
 
             <div class="project-info">
 
-              <div>
+              <div class="project-info-top">
 
-                <div class="project-number">
-                  01 / BANNER
+                <div>
+
+                  <div class="project-number">
+                    01 / BANNER
+                  </div>
+
+                  <div class="project-name">
+                    Banner Design I
+                  </div>
+
                 </div>
 
-                <div class="project-name">
-                  Banner Design I
+                <div class="project-type">
+                  Graphic Design
                 </div>
 
               </div>
 
-              <div class="project-type">
-                Graphic Design
-              </div>
+              <p class="project-description">
+                A high-impact promotional banner built around
+                bold color blocking and clear visual hierarchy —
+                designed to stop the scroll in a crowded feed.
+              </p>
 
             </div>
 
@@ -2859,21 +3033,31 @@
 
             <div class="project-info">
 
-              <div>
+              <div class="project-info-top">
 
-                <div class="project-number">
-                  02 / BANNER
+                <div>
+
+                  <div class="project-number">
+                    02 / BANNER
+                  </div>
+
+                  <div class="project-name">
+                    Banner Design II
+                  </div>
+
                 </div>
 
-                <div class="project-name">
-                  Banner Design II
+                <div class="project-type">
+                  Art Direction
                 </div>
 
               </div>
 
-              <div class="project-type">
-                Art Direction
-              </div>
+              <p class="project-description">
+                A refined, art-directed banner concept exploring
+                mood, light and composition — giving a simple
+                product story a more cinematic, premium feel.
+              </p>
 
             </div>
 
@@ -2924,21 +3108,31 @@
 
             <div class="project-info">
 
-              <div>
+              <div class="project-info-top">
 
-                <div class="project-number">
-                  03 / POSTER
+                <div>
+
+                  <div class="project-number">
+                    03 / POSTER
+                  </div>
+
+                  <div class="project-name">
+                    Derby 107
+                  </div>
+
                 </div>
 
-                <div class="project-name">
-                  Derby 107
+                <div class="project-type">
+                  Poster Design
                 </div>
 
               </div>
 
-              <div class="project-type">
-                Poster Design
-              </div>
+              <p class="project-description">
+                A commemorative matchday poster for a historic
+                football rivalry — bold typography and layered
+                color used to capture tension, pride and occasion.
+              </p>
 
             </div>
 
@@ -3015,21 +3209,31 @@
 
             <div class="project-info">
 
-              <div>
+              <div class="project-info-top">
 
-                <div class="project-number">
-                  04 / FILM
+                <div>
+
+                  <div class="project-number">
+                    04 / FILM
+                  </div>
+
+                  <div class="project-name">
+                    Commercial Film I
+                  </div>
+
                 </div>
 
-                <div class="project-name">
-                  Commercial Film I
+                <div class="project-type">
+                  AI Video
                 </div>
 
               </div>
 
-              <div class="project-type">
-                AI Video
-              </div>
+              <p class="project-description">
+                A short AI-generated commercial exploring product
+                storytelling through cinematic motion, lighting
+                and pacing — built entirely with AI-driven tools.
+              </p>
 
             </div>
 
@@ -3106,21 +3310,31 @@
 
             <div class="project-info">
 
-              <div>
+              <div class="project-info-top">
 
-                <div class="project-number">
-                  05 / FILM
+                <div>
+
+                  <div class="project-number">
+                    05 / FILM
+                  </div>
+
+                  <div class="project-name">
+                    Commercial Film II
+                  </div>
+
                 </div>
 
-                <div class="project-name">
-                  Commercial Film II
+                <div class="project-type">
+                  AI Video
                 </div>
 
               </div>
 
-              <div class="project-type">
-                AI Video
-              </div>
+              <p class="project-description">
+                A vertical-format AI video built for social
+                platforms — fast, punchy pacing optimized for
+                mobile feeds and sound-off viewing.
+              </p>
 
             </div>
 
@@ -3197,26 +3411,76 @@
 
             <div class="project-info">
 
-              <div>
+              <div class="project-info-top">
 
-                <div class="project-number">
-                  06 / MOTION
+                <div>
+
+                  <div class="project-number">
+                    06 / MOTION
+                  </div>
+
+                  <div class="project-name">
+                    From Static to Motion
+                  </div>
+
                 </div>
 
-                <div class="project-name">
-                  From Static to Motion
+                <div class="project-type">
+                  Motion Design
                 </div>
 
               </div>
 
-              <div class="project-type">
-                Motion Design
-              </div>
+              <p class="project-description">
+                A single static visual reimagined as a living,
+                breathing motion piece — proof that a strong
+                composition holds up in movement too.
+              </p>
 
             </div>
 
           </article>
 
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CREDIBILITY / STATS
+    ====================================================== -->
+
+    <section class="section stats">
+
+      <div class="container">
+
+        <div class="stats-grid">
+
+          <div class="stat-item reveal">
+            <div class="stat-number">6+</div>
+            <div class="stat-label">Years of creative experience</div>
+          </div>
+
+          <div class="stat-item reveal">
+            <div class="stat-number">2020</div>
+            <div class="stat-label">Freelance graphic design journey began</div>
+          </div>
+
+          <div class="stat-item reveal">
+            <div class="stat-number">2025</div>
+            <div class="stat-label">Focus shifted to AI-powered production</div>
+          </div>
+
+          <!--
+            Add real credibility signals here as they become available:
+            e.g. number of completed projects, brands/clients worked
+            with, or a short client testimonial quote. Keeping these
+            numbers honest and specific (not vague) is what builds
+            trust with people viewing the portfolio.
+          -->
 
         </div>
 
@@ -3867,6 +4131,56 @@
 
 
     /* =======================================================
+       MOBILE NAV TOGGLE
+    ======================================================== */
+
+    const navToggle =
+      document.getElementById("navToggle");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    if (navToggle && navLinks) {
+
+      navToggle.addEventListener(
+        "click",
+        () => {
+
+          const isOpen =
+            navLinks.classList.toggle("open");
+
+          navToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+          );
+
+        }
+      );
+
+      navLinks.querySelectorAll("a").forEach(
+        (link) => {
+
+          link.addEventListener(
+            "click",
+            () => {
+
+              navLinks.classList.remove("open");
+
+              navToggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+            }
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =======================================================
        SCROLL REVEAL
     ======================================================== */
 
@@ -3954,156 +4268,52 @@
         }
 
 
-        /* PLAY / PAUSE */
+        /*
+          The inline video inside the card is ONLY ever
+          used as a static preview (paused, first frame).
+          It never plays inside the card — this avoids the
+          bug where the card preview and the fullscreen
+          lightbox could both end up playing audio at once.
+          Any click — the play button, the expand button,
+          or the video/poster itself — opens the fullscreen
+          lightbox and plays the video there, with sound.
+        */
+
+        function openVideoFullscreen(event) {
+
+          if (event) {
+            event.stopPropagation();
+          }
+
+          const source =
+            video.querySelector("source")
+              ? video.querySelector("source").src
+              : video.currentSrc;
+
+          openLightbox(
+            "video",
+            source,
+            true
+          );
+
+        }
+
 
         playButton.addEventListener(
           "click",
-          async (event) => {
-
-            event.stopPropagation();
-
-            try {
-
-              if (
-                video.paused
-              ) {
-
-                /*
-                  Audio is intentionally enabled
-                  when the user clicks Play.
-                */
-
-                video.muted = false;
-
-                await video.play();
-
-                container.classList.add(
-                  "video-playing"
-                );
-
-              } else {
-
-                video.pause();
-
-                container.classList.remove(
-                  "video-playing"
-                );
-
-              }
-
-            } catch (error) {
-
-              /*
-                Some browsers may block
-                unmuted playback in edge cases.
-                The user click itself normally
-                provides the required interaction.
-              */
-
-              video.muted = false;
-
-              video.play().then(
-                () => {
-
-                  container.classList.add(
-                    "video-playing"
-                  );
-
-                }
-              ).catch(
-                () => {}
-              );
-
-            }
-
-          }
+          openVideoFullscreen
         );
-
-
-        /* VIDEO CLICK = PAUSE / PLAY */
 
         video.addEventListener(
           "click",
-          () => {
-
-            if (
-              video.paused
-            ) {
-
-              video.muted = false;
-
-              video.play().then(
-                () => {
-
-                  container.classList.add(
-                    "video-playing"
-                  );
-
-                }
-              ).catch(
-                () => {}
-
-              );
-
-            } else {
-
-              video.pause();
-
-              container.classList.remove(
-                "video-playing"
-              );
-
-            }
-
-          }
+          openVideoFullscreen
         );
-
-
-        /* PLAY STATE */
-
-        video.addEventListener(
-          "play",
-          () => {
-
-            container.classList.add(
-              "video-playing"
-            );
-
-          }
-        );
-
-
-        video.addEventListener(
-          "pause",
-          () => {
-
-            container.classList.remove(
-              "video-playing"
-            );
-
-          }
-        );
-
-
-        /* FULLSCREEN */
 
         if (expandButton) {
 
           expandButton.addEventListener(
             "click",
-            (event) => {
-
-              event.stopPropagation();
-
-              openLightbox(
-                "video",
-                video.querySelector("source")
-                  ? video.querySelector("source").src
-                  : video.currentSrc,
-                true
-              );
-
-            }
+            openVideoFullscreen
           );
 
         }
