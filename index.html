@@ -2630,6 +2630,439 @@
 
     }
 
+    /* =====================================================
+   SOUND / MUSIC
+====================================================== */
+
+.sound-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.sound-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 55px;
+}
+
+.sound-header-left {
+  max-width: 650px;
+}
+
+.sound-header .eyebrow {
+  margin-bottom: 14px;
+}
+
+.sound-title {
+  margin: 0;
+  font-size: clamp(54px, 8vw, 110px);
+  line-height: .88;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+}
+
+.sound-description {
+  max-width: 430px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.75;
+  opacity: .65;
+}
+
+
+/* MUSIC GRID */
+
+.sound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+
+/* MUSIC CARD */
+
+.sound-card {
+  position: relative;
+  min-width: 0;
+  padding: 30px;
+  border: 1px solid rgba(29, 36, 31, .12);
+  border-radius: 24px;
+  background: rgba(245, 241, 231, .55);
+  overflow: hidden;
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    background .4s ease;
+}
+
+.sound-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(112, 133, 111, .16),
+      transparent 34%
+    );
+  pointer-events: none;
+}
+
+.sound-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(49, 77, 59, .25);
+  background: rgba(245, 241, 231, .8);
+}
+
+
+/* TOP INFO */
+
+.sound-info {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 32px;
+}
+
+.sound-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  border-radius: 50%;
+  background: #314d3b;
+  color: #f5f1e7;
+
+  font-size: 10px;
+  letter-spacing: .08em;
+}
+
+.sound-info h3 {
+  margin: 0 0 5px;
+
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+
+.sound-info p {
+  margin: 0;
+
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+
+/* PLAYER ROW */
+
+.sound-player {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* PLAY BUTTON */
+
+.sound-play {
+  width: 58px;
+  height: 58px;
+
+  border: 0;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #70856f;
+  color: #f5f1e7;
+
+  cursor: pointer;
+
+  transition:
+    transform .3s ease,
+    background .3s ease;
+}
+
+.sound-play:hover {
+  transform: scale(1.06);
+  background: #314d3b;
+}
+
+.sound-play:active {
+  transform: scale(.97);
+}
+
+.sound-play svg {
+  width: 18px;
+  height: 18px;
+
+  fill: currentColor;
+}
+
+.sound-play .pause-icon {
+  display: none;
+}
+
+.sound-card.is-playing .sound-play .play-icon {
+  display: none;
+}
+
+.sound-card.is-playing .sound-play .pause-icon {
+  display: block;
+}
+
+
+/* WAVEFORM */
+
+.sound-wave {
+  position: relative;
+
+  width: 100%;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.sound-wave span {
+  display: block;
+
+  width: 3px;
+  min-width: 3px;
+
+  border-radius: 99px;
+
+  background: rgba(49, 77, 59, .22);
+
+  transition:
+    background .2s ease,
+    height .2s ease;
+}
+
+.sound-wave span:nth-child(1) { height: 18%; }
+.sound-wave span:nth-child(2) { height: 32%; }
+.sound-wave span:nth-child(3) { height: 52%; }
+.sound-wave span:nth-child(4) { height: 28%; }
+.sound-wave span:nth-child(5) { height: 68%; }
+.sound-wave span:nth-child(6) { height: 42%; }
+.sound-wave span:nth-child(7) { height: 78%; }
+.sound-wave span:nth-child(8) { height: 55%; }
+.sound-wave span:nth-child(9) { height: 34%; }
+.sound-wave span:nth-child(10) { height: 62%; }
+.sound-wave span:nth-child(11) { height: 44%; }
+.sound-wave span:nth-child(12) { height: 82%; }
+.sound-wave span:nth-child(13) { height: 58%; }
+.sound-wave span:nth-child(14) { height: 36%; }
+.sound-wave span:nth-child(15) { height: 72%; }
+.sound-wave span:nth-child(16) { height: 48%; }
+.sound-wave span:nth-child(17) { height: 30%; }
+.sound-wave span:nth-child(18) { height: 64%; }
+.sound-wave span:nth-child(19) { height: 42%; }
+.sound-wave span:nth-child(20) { height: 76%; }
+.sound-wave span:nth-child(21) { height: 52%; }
+.sound-wave span:nth-child(22) { height: 34%; }
+.sound-wave span:nth-child(23) { height: 70%; }
+.sound-wave span:nth-child(24) { height: 46%; }
+.sound-wave span:nth-child(25) { height: 28%; }
+.sound-wave span:nth-child(26) { height: 58%; }
+.sound-wave span:nth-child(27) { height: 80%; }
+.sound-wave span:nth-child(28) { height: 40%; }
+.sound-wave span:nth-child(29) { height: 66%; }
+.sound-wave span:nth-child(30) { height: 32%; }
+.sound-wave span:nth-child(31) { height: 54%; }
+.sound-wave span:nth-child(32) { height: 74%; }
+.sound-wave span:nth-child(33) { height: 38%; }
+.sound-wave span:nth-child(34) { height: 62%; }
+.sound-wave span:nth-child(35) { height: 48%; }
+.sound-wave span:nth-child(36) { height: 82%; }
+.sound-wave span:nth-child(37) { height: 34%; }
+.sound-wave span:nth-child(38) { height: 58%; }
+.sound-wave span:nth-child(39) { height: 72%; }
+.sound-wave span:nth-child(40) { height: 44%; }
+.sound-wave span:nth-child(41) { height: 64%; }
+.sound-wave span:nth-child(42) { height: 30%; }
+.sound-wave span:nth-child(43) { height: 78%; }
+.sound-wave span:nth-child(44) { height: 50%; }
+.sound-wave span:nth-child(45) { height: 36%; }
+.sound-wave span:nth-child(46) { height: 68%; }
+.sound-wave span:nth-child(47) { height: 42%; }
+.sound-wave span:nth-child(48) { height: 74%; }
+.sound-wave span:nth-child(49) { height: 32%; }
+.sound-wave span:nth-child(50) { height: 56%; }
+
+.sound-card.is-playing .sound-wave span {
+  animation: soundPulse 1.15s ease-in-out infinite alternate;
+}
+
+@keyframes soundPulse {
+  from {
+    transform: scaleY(.75);
+  }
+
+  to {
+    transform: scaleY(1.12);
+  }
+}
+
+
+/* PROGRESS */
+
+.sound-progress {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 22px;
+
+  width: 100%;
+  height: 3px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: rgba(49, 77, 59, .12);
+
+  border-radius: 99px;
+
+  cursor: pointer;
+}
+
+.sound-progress::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 11px;
+  height: 11px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #314d3b;
+
+  cursor: pointer;
+}
+
+.sound-progress::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #314d3b;
+
+  cursor: pointer;
+}
+
+
+/* BOTTOM META */
+
+.sound-bottom {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  opacity: .55;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .sound-section {
+    padding: 80px 0;
+  }
+
+  .sound-header {
+    display: block;
+    margin-bottom: 38px;
+  }
+
+  .sound-title {
+    font-size: clamp(48px, 15vw, 76px);
+    margin-bottom: 22px;
+  }
+
+  .sound-description {
+    max-width: 100%;
+    font-size: 12px;
+  }
+
+  .sound-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .sound-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .sound-info {
+    margin-bottom: 26px;
+  }
+
+  .sound-info h3 {
+    font-size: 15px;
+  }
+
+  .sound-player {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 15px;
+  }
+
+  .sound-play {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sound-wave {
+    height: 42px;
+    gap: 2px;
+  }
+
+  .sound-wave span {
+    width: 2px;
+    min-width: 2px;
+  }
+
+}
+
   </style>
 </head>
 
@@ -3447,6 +3880,356 @@
       </div>
 
     </section>
+
+        </section>
+
+
+    <!-- =====================================================
+         SOUND / MUSIC
+    ====================================================== -->
+
+    <section class="sound-section" id="sound">
+
+      <div class="container">
+
+        <div class="sound-header reveal">
+
+          <div class="sound-header-left">
+
+            <div class="eyebrow">
+              Sound / Motion
+            </div>
+
+            <h2 class="sound-title">
+              SOUND.
+            </h2>
+
+          </div>
+
+          <p class="sound-description">
+            Original advertising music created to give visual stories
+            their own rhythm, atmosphere and identity.
+          </p>
+
+        </div>
+
+
+        <div class="sound-grid">
+
+
+          <!-- TRACK 01 -->
+
+          <article class="sound-card reveal">
+
+            <div class="sound-info">
+
+              <span class="sound-number">
+                01
+              </span>
+
+              <div>
+
+                <h3>
+                  Advertising Track I
+                </h3>
+
+                <p>
+                  Original Advertising Music
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="sound-player">
+
+              <button
+                class="sound-play"
+                type="button"
+                aria-label="Play Advertising Track I"
+              >
+
+                <svg
+                  class="play-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+
+                <svg
+                  class="pause-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M7 5h4v14H7zM13 5h4v14h-4z"></path>
+                </svg>
+
+              </button>
+
+
+              <div
+                class="sound-wave"
+                data-wave
+                aria-label="Track waveform"
+              >
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+            </div>
+
+
+            <input
+              class="sound-progress"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              step="0.1"
+              aria-label="Track progress"
+            />
+
+
+            <div class="sound-bottom">
+
+              <span class="sound-current">
+                00:00
+              </span>
+
+              <span class="sound-duration">
+                00:00
+              </span>
+
+            </div>
+
+
+            <audio
+              class="sound-audio"
+              preload="metadata"
+              src="assets/audio/advertising-track-01.mp3"
+            ></audio>
+
+          </article>
+
+
+
+          <!-- TRACK 02 -->
+
+          <article class="sound-card reveal">
+
+            <div class="sound-info">
+
+              <span class="sound-number">
+                02
+              </span>
+
+              <div>
+
+                <h3>
+                  Advertising Track II
+                </h3>
+
+                <p>
+                  Original Advertising Music
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="sound-player">
+
+              <button
+                class="sound-play"
+                type="button"
+                aria-label="Play Advertising Track II"
+              >
+
+                <svg
+                  class="play-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+
+                <svg
+                  class="pause-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M7 5h4v14H7zM13 5h4v14h-4z"></path>
+                </svg>
+
+              </button>
+
+
+              <div
+                class="sound-wave"
+                data-wave
+                aria-label="Track waveform"
+              >
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+            </div>
+
+
+            <input
+              class="sound-progress"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              step="0.1"
+              aria-label="Track progress"
+            />
+
+
+            <div class="sound-bottom">
+
+              <span class="sound-current">
+                00:00
+              </span>
+
+              <span class="sound-duration">
+                00:00
+              </span>
+
+            </div>
+
+
+            <audio
+              class="sound-audio"
+              preload="metadata"
+              src="assets/audio/advertising-track-02.mp3"
+            ></audio>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CREDIBILITY / STATS
+    ====================================================== -->
 
 
     <!-- =====================================================
@@ -4573,6 +5356,230 @@
 
       }
     );
+
+    /* =====================================================
+   SOUND / MUSIC PLAYER
+====================================================== */
+
+const soundCards = document.querySelectorAll(".sound-card");
+
+soundCards.forEach((card) => {
+
+  const audio = card.querySelector(".sound-audio");
+  const playButton = card.querySelector(".sound-play");
+  const progress = card.querySelector(".sound-progress");
+  const wave = card.querySelector(".sound-wave");
+  const currentTime = card.querySelector(".sound-current");
+  const duration = card.querySelector(".sound-duration");
+
+
+  /* FORMAT TIME */
+
+  function formatTime(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+      return "00:00";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    return (
+      String(minutes).padStart(2, "0") +
+      ":" +
+      String(remainingSeconds).padStart(2, "0")
+    );
+
+  }
+
+
+  /* PLAY / PAUSE */
+
+  playButton.addEventListener("click", () => {
+
+    if (audio.paused) {
+
+      /*
+       * Stop every other track
+       */
+
+      soundCards.forEach((otherCard) => {
+
+        const otherAudio =
+          otherCard.querySelector(".sound-audio");
+
+        if (otherAudio !== audio) {
+
+          otherAudio.pause();
+          otherAudio.currentTime = 0;
+
+          otherCard.classList.remove("is-playing");
+
+          const otherProgress =
+            otherCard.querySelector(".sound-progress");
+
+          const otherCurrent =
+            otherCard.querySelector(".sound-current");
+
+          if (otherProgress) {
+            otherProgress.value = 0;
+          }
+
+          if (otherCurrent) {
+            otherCurrent.textContent = "00:00";
+          }
+
+        }
+
+      });
+
+
+      audio.play();
+
+      card.classList.add("is-playing");
+
+    } else {
+
+      audio.pause();
+
+      card.classList.remove("is-playing");
+
+    }
+
+  });
+
+
+  /* METADATA */
+
+  audio.addEventListener("loadedmetadata", () => {
+
+    duration.textContent =
+      formatTime(audio.duration);
+
+  });
+
+
+  /* TIME UPDATE */
+
+  audio.addEventListener("timeupdate", () => {
+
+    if (!audio.duration) {
+      return;
+    }
+
+    const percentage =
+      (audio.currentTime / audio.duration) * 100;
+
+    progress.value = percentage;
+
+    currentTime.textContent =
+      formatTime(audio.currentTime);
+
+
+    /*
+     * Highlight played waveform
+     */
+
+    const bars =
+      wave.querySelectorAll("span");
+
+    const activeBars =
+      Math.floor(
+        (percentage / 100) * bars.length
+      );
+
+    bars.forEach((bar, index) => {
+
+      if (index < activeBars) {
+
+        bar.style.background =
+          "#314d3b";
+
+      } else {
+
+        bar.style.background =
+          "rgba(49, 77, 59, .22)";
+
+      }
+
+    });
+
+  });
+
+
+  /* PROGRESS CONTROL */
+
+  progress.addEventListener("input", () => {
+
+    if (!audio.duration) {
+      return;
+    }
+
+    audio.currentTime =
+      (progress.value / 100) *
+      audio.duration;
+
+  });
+
+
+  /* WAVEFORM SEEK */
+
+  wave.addEventListener("click", (event) => {
+
+    if (!audio.duration) {
+      return;
+    }
+
+    const rect =
+      wave.getBoundingClientRect();
+
+    const clickPosition =
+      event.clientX - rect.left;
+
+    const percentage =
+      clickPosition / rect.width;
+
+    audio.currentTime =
+      percentage * audio.duration;
+
+  });
+
+
+  /* END */
+
+  audio.addEventListener("ended", () => {
+
+    card.classList.remove("is-playing");
+
+    progress.value = 0;
+
+    currentTime.textContent = "00:00";
+
+    const bars =
+      wave.querySelectorAll("span");
+
+    bars.forEach((bar) => {
+
+      bar.style.background =
+        "rgba(49, 77, 59, .22)";
+
+    });
+
+  });
+
+
+  /* ERROR */
+
+  audio.addEventListener("error", () => {
+
+    console.warn(
+      "Unable to load audio:",
+      audio.src
+    );
+
+  });
+
+});
 
   </script>
 
