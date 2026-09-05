@@ -105,7 +105,7 @@
 
     .section {
       position: relative;
-      padding: 145px 0;
+      padding: 118px 0;
     }
 
     .eyebrow {
@@ -165,7 +165,7 @@
       -webkit-backdrop-filter: blur(20px);
 
       box-shadow:
-        0 10px 40px rgba(29,36,31,0.06);
+        0 16px 50px rgba(29,36,31,0.11);
 
       transition:
         background 0.4s var(--ease),
@@ -177,7 +177,7 @@
         rgba(245,241,231,0.92);
 
       box-shadow:
-        0 14px 45px rgba(29,36,31,0.1);
+        0 20px 60px rgba(29,36,31,0.16);
     }
 
     .nav-logo {
@@ -801,14 +801,21 @@
       cursor: zoom-in;
     }
 
-    /* Exact source ratios */
+    /* Exact source ratios — each media type keeps its own
+       native ratio so nothing gets stretched or cropped */
 
-    .project-media.landscape {
+    .project-media.landscape,
+    .project-media.banner-ratio {
       aspect-ratio: 1376 / 768;
     }
 
-    .project-media.derby {
+    .project-media.derby,
+    .project-media.poster-ratio {
       aspect-ratio: 1086 / 1448;
+    }
+
+    .project-media.logo-ratio {
+      aspect-ratio: 1 / 1;
     }
 
     .project-media.landscape-video {
@@ -834,6 +841,156 @@
 
     .project-media:hover img {
       transform: scale(1.015);
+    }
+
+    /* =========================================================
+       MEDIA SLIDER (banner / poster / logo galleries)
+    ========================================================= */
+
+    .media-slider .slider-track {
+      display: flex;
+
+      width: 100%;
+      height: 100%;
+
+      transition: transform 0.6s var(--ease);
+    }
+
+    .media-slider .slider-slide {
+      flex: 0 0 100%;
+
+      width: 100%;
+      height: 100%;
+    }
+
+    .media-slider .slider-slide img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      background: #d8d5ca;
+    }
+
+    .slider-arrow {
+      position: absolute;
+
+      top: 50%;
+      z-index: 6;
+
+      width: 38px;
+      height: 38px;
+
+      transform: translateY(-50%);
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+
+      background: rgba(29,36,31,0.55);
+
+      color: #fff;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s var(--ease),
+        background 0.3s ease;
+    }
+
+    .media-slider:hover .slider-arrow {
+      opacity: 1;
+    }
+
+    .slider-arrow:hover {
+      background: rgba(49,77,59,0.9);
+
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .slider-arrow svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .slider-prev {
+      left: 14px;
+    }
+
+    .slider-next {
+      right: 14px;
+    }
+
+    .slider-dots {
+      position: absolute;
+
+      left: 50%;
+      bottom: 16px;
+      z-index: 6;
+
+      transform: translateX(-50%);
+
+      display: flex;
+      align-items: center;
+
+      gap: 6px;
+    }
+
+    .slider-dot {
+      width: 6px;
+      height: 6px;
+
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.55);
+
+      cursor: pointer;
+
+      transition:
+        width 0.3s var(--ease),
+        border-radius 0.3s var(--ease),
+        background 0.3s ease;
+    }
+
+    .slider-dot.active {
+      width: 18px;
+      border-radius: 4px;
+
+      background: #fff;
+    }
+
+    .slider-count {
+      position: absolute;
+
+      left: 17px;
+      top: 17px;
+      z-index: 6;
+
+      padding: 6px 11px;
+
+      border-radius: 100px;
+
+      background: rgba(29,36,31,0.55);
+
+      color: #fff;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 0.08em;
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     /* =========================================================
@@ -2125,6 +2282,11 @@
 
     @media (max-width: 720px) {
 
+      html,
+      body {
+        background: var(--cream-light);
+      }
+
       .container {
         width:
           calc(100% - 32px);
@@ -2401,6 +2563,30 @@
 
         right: 12px;
         top: 12px;
+      }
+
+      /* MEDIA SLIDER — arrows must be visible without hover on touch */
+
+      .slider-arrow {
+        opacity: 1;
+
+        width: 32px;
+        height: 32px;
+      }
+
+      .slider-prev {
+        left: 10px;
+      }
+
+      .slider-next {
+        right: 10px;
+      }
+
+      .slider-count {
+        left: 12px;
+        top: 12px;
+
+        font-size: 8px;
       }
 
       /* MOTION */
@@ -3242,37 +3428,33 @@
 
       <div class="marquee-track">
 
-        <div class="marquee-item">
-          Graphic Design
-        </div>
+        <div class="marquee-item">Graphic Design</div>
+        <div class="marquee-item">AI Art Direction</div>
+        <div class="marquee-item">Motion</div>
+        <div class="marquee-item">Visual Identity</div>
+        <div class="marquee-item">Poster Design</div>
+        <div class="marquee-item">Brand & Logo</div>
 
-        <div class="marquee-item">
-          AI Art Direction
-        </div>
+        <div class="marquee-item">Graphic Design</div>
+        <div class="marquee-item">AI Art Direction</div>
+        <div class="marquee-item">Motion</div>
+        <div class="marquee-item">Visual Identity</div>
+        <div class="marquee-item">Poster Design</div>
+        <div class="marquee-item">Brand & Logo</div>
 
-        <div class="marquee-item">
-          Motion
-        </div>
+        <div class="marquee-item">Graphic Design</div>
+        <div class="marquee-item">AI Art Direction</div>
+        <div class="marquee-item">Motion</div>
+        <div class="marquee-item">Visual Identity</div>
+        <div class="marquee-item">Poster Design</div>
+        <div class="marquee-item">Brand & Logo</div>
 
-        <div class="marquee-item">
-          Visual Identity
-        </div>
-
-        <div class="marquee-item">
-          Graphic Design
-        </div>
-
-        <div class="marquee-item">
-          AI Art Direction
-        </div>
-
-        <div class="marquee-item">
-          Motion
-        </div>
-
-        <div class="marquee-item">
-          Visual Identity
-        </div>
+        <div class="marquee-item">Graphic Design</div>
+        <div class="marquee-item">AI Art Direction</div>
+        <div class="marquee-item">Motion</div>
+        <div class="marquee-item">Visual Identity</div>
+        <div class="marquee-item">Poster Design</div>
+        <div class="marquee-item">Brand & Logo</div>
 
       </div>
 
@@ -3337,8 +3519,8 @@
 
           <p class="section-note">
             A curated selection of visual projects across
-            graphic design, advertising, poster design,
-            AI production and motion.
+            graphic design, advertising, poster and logo
+            design, AI production and motion.
           </p>
 
         </div>
@@ -3348,22 +3530,62 @@
 
 
           <!-- =================================================
-               BANNER 01
+               BANNER SLIDER (01)
           ================================================== -->
 
           <article class="project reveal">
 
             <div
-              class="project-media landscape"
+              class="project-media banner-ratio media-slider"
               data-lightbox="image"
               data-src="assets/images/banner-01.jpg"
             >
 
-              <img
-                src="assets/images/banner-01.jpg"
-                alt="Banner Design I"
-                loading="lazy"
-              />
+              <div class="slider-track">
+
+                <div class="slider-slide">
+                  <img src="assets/images/banner-01.jpg" alt="Banner Design 1" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/banner-02.jpg" alt="Banner Design 2" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/banner-03.jpg" alt="Banner Design 3" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/banner-04.jpg" alt="Banner Design 4" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/banner-05.jpg" alt="Banner Design 5" loading="lazy" />
+                </div>
+
+              </div>
+
+              <button class="slider-arrow slider-prev" type="button" aria-label="Previous banner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              <button class="slider-arrow slider-next" type="button" aria-label="Next banner">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+
+              <div class="slider-count">1 / 5</div>
+
+              <div class="slider-dots">
+                <button class="slider-dot active" type="button" aria-label="Go to slide 1"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 2"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 3"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 4"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 5"></button>
+              </div>
 
               <button
                 class="media-expand"
@@ -3400,7 +3622,7 @@
                   </div>
 
                   <div class="project-name">
-                    Banner Design I
+                    Banner Collection
                   </div>
 
                 </div>
@@ -3412,9 +3634,13 @@
               </div>
 
               <p class="project-description">
-                A high-impact promotional banner built around
-                bold color blocking and clear visual hierarchy —
-                designed to stop the scroll in a crowded feed.
+                A set of promotional banners built for a run of
+                seasonal campaigns, each one designed around a
+                single clear message so it reads in the first
+                half-second of a scroll. I leaned on bold color
+                blocking and a tight grid to keep every version
+                consistent, then adjusted the palette and imagery
+                per campaign so the set never felt repetitive.
               </p>
 
             </div>
@@ -3423,97 +3649,62 @@
 
 
           <!-- =================================================
-               BANNER 02
+               POSTER SLIDER (02)
           ================================================== -->
 
           <article class="project reveal">
 
             <div
-              class="project-media landscape"
-              data-lightbox="image"
-              data-src="assets/images/banner-02.jpg"
-            >
-
-              <img
-                src="assets/images/banner-02.jpg"
-                alt="Banner Design II"
-                loading="lazy"
-              />
-
-              <button
-                class="media-expand"
-                type="button"
-                aria-label="Open banner fullscreen"
-              >
-
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.7"
-                >
-
-                  <path d="M8 3H3v5" />
-                  <path d="M16 3h5v5" />
-                  <path d="M21 16v5h-5" />
-                  <path d="M3 16v5h5" />
-
-                </svg>
-
-              </button>
-
-            </div>
-
-            <div class="project-info">
-
-              <div class="project-info-top">
-
-                <div>
-
-                  <div class="project-number">
-                    02 / BANNER
-                  </div>
-
-                  <div class="project-name">
-                    Banner Design II
-                  </div>
-
-                </div>
-
-                <div class="project-type">
-                  Art Direction
-                </div>
-
-              </div>
-
-              <p class="project-description">
-                A refined, art-directed banner concept exploring
-                mood, light and composition — giving a simple
-                product story a more cinematic, premium feel.
-              </p>
-
-            </div>
-
-          </article>
-
-
-          <!-- =================================================
-               DERBY
-          ================================================== -->
-
-          <article class="project reveal">
-
-            <div
-              class="project-media derby"
+              class="project-media poster-ratio media-slider"
               data-lightbox="image"
               data-src="assets/images/derby-107.jpg"
             >
 
-              <img
-                src="assets/images/derby-107.jpg"
-                alt="Derby 107 Poster"
-                loading="lazy"
-              />
+              <div class="slider-track">
+
+                <div class="slider-slide">
+                  <img src="assets/images/derby-107.jpg" alt="Poster Design 1" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/poster-02.jpg" alt="Poster Design 2" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/poster-03.jpg" alt="Poster Design 3" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/poster-04.jpg" alt="Poster Design 4" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/poster-05.jpg" alt="Poster Design 5" loading="lazy" />
+                </div>
+
+              </div>
+
+              <button class="slider-arrow slider-prev" type="button" aria-label="Previous poster">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              <button class="slider-arrow slider-next" type="button" aria-label="Next poster">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+
+              <div class="slider-count">1 / 5</div>
+
+              <div class="slider-dots">
+                <button class="slider-dot active" type="button" aria-label="Go to slide 1"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 2"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 3"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 4"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 5"></button>
+              </div>
 
               <button
                 class="media-expand"
@@ -3546,11 +3737,11 @@
                 <div>
 
                   <div class="project-number">
-                    03 / POSTER
+                    02 / POSTER
                   </div>
 
                   <div class="project-name">
-                    Derby 107
+                    Poster Collection
                   </div>
 
                 </div>
@@ -3562,9 +3753,132 @@
               </div>
 
               <p class="project-description">
-                A commemorative matchday poster for a historic
-                football rivalry — bold typography and layered
-                color used to capture tension, pride and occasion.
+                A series of event and matchday posters, starting
+                with a commemorative piece for a historic derby
+                rivalry — bold type and layered color built to
+                carry the tension of the occasion. The rest of
+                the set follows that same instinct: strong
+                typographic hierarchy, restrained color, and
+                enough visual weight to hold up printed large.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- =================================================
+               LOGO SLIDER (03) — NEW
+          ================================================== -->
+
+          <article class="project reveal">
+
+            <div
+              class="project-media logo-ratio media-slider"
+              data-lightbox="image"
+              data-src="assets/images/logo-01.jpg"
+            >
+
+              <div class="slider-track">
+
+                <div class="slider-slide">
+                  <img src="assets/images/logo-01.jpg" alt="Logo Design 1" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/logo-02.jpg" alt="Logo Design 2" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/logo-03.jpg" alt="Logo Design 3" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/logo-04.jpg" alt="Logo Design 4" loading="lazy" />
+                </div>
+
+                <div class="slider-slide">
+                  <img src="assets/images/logo-05.jpg" alt="Logo Design 5" loading="lazy" />
+                </div>
+
+              </div>
+
+              <button class="slider-arrow slider-prev" type="button" aria-label="Previous logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              <button class="slider-arrow slider-next" type="button" aria-label="Next logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+
+              <div class="slider-count">1 / 5</div>
+
+              <div class="slider-dots">
+                <button class="slider-dot active" type="button" aria-label="Go to slide 1"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 2"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 3"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 4"></button>
+                <button class="slider-dot" type="button" aria-label="Go to slide 5"></button>
+              </div>
+
+              <button
+                class="media-expand"
+                type="button"
+                aria-label="Open logo fullscreen"
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                >
+
+                  <path d="M8 3H3v5" />
+                  <path d="M16 3h5v5" />
+                  <path d="M21 16v5h-5" />
+                  <path d="M3 16v5h5" />
+
+                </svg>
+
+              </button>
+
+            </div>
+
+            <div class="project-info">
+
+              <div class="project-info-top">
+
+                <div>
+
+                  <div class="project-number">
+                    03 / LOGO
+                  </div>
+
+                  <div class="project-name">
+                    Logo & Mark Design
+                  </div>
+
+                </div>
+
+                <div class="project-type">
+                  Visual Identity
+                </div>
+
+              </div>
+
+              <p class="project-description">
+                A small collection of logo and mark explorations
+                for brands that needed something they could carry
+                across a business card and a billboard without
+                losing clarity. Each mark was built simple enough
+                to work at favicon size, distinct enough to hold
+                its own next to competitors already crowding the
+                same shelf.
               </p>
 
             </div>
@@ -3663,9 +3977,13 @@
               </div>
 
               <p class="project-description">
-                A short AI-generated commercial exploring product
-                storytelling through cinematic motion, lighting
-                and pacing — built entirely with AI-driven tools.
+                A short commercial built almost entirely with
+                AI video tools, made to test how far an AI
+                pipeline could carry a real product story. The
+                brief called for something that felt shot, not
+                generated — so most of the effort went into
+                lighting continuity and pacing between shots
+                rather than the individual frames themselves.
               </p>
 
             </div>
@@ -3764,9 +4082,12 @@
               </div>
 
               <p class="project-description">
-                A vertical-format AI video built for social
-                platforms — fast, punchy pacing optimized for
-                mobile feeds and sound-off viewing.
+                The same campaign reworked as a vertical cut for
+                Stories and Reels. Rather than just cropping the
+                landscape version, I re-cut the pacing entirely —
+                shorter beats, a stronger opening frame, and
+                captions baked into the composition so it still
+                lands with the sound off.
               </p>
 
             </div>
@@ -3865,9 +4186,12 @@
               </div>
 
               <p class="project-description">
-                A single static visual reimagined as a living,
-                breathing motion piece — proof that a strong
-                composition holds up in movement too.
+                A static key visual from an earlier campaign,
+                brought back and rebuilt as motion. The layout
+                didn't need to change — it just needed to breathe:
+                subtle parallax, light drifting across the frame,
+                small details animating in. A good composition
+                should survive that kind of push, and this one did.
               </p>
 
             </div>
@@ -3880,8 +4204,6 @@
       </div>
 
     </section>
-
-        </section>
 
 
     <!-- =====================================================
@@ -5106,6 +5428,118 @@
 
 
     /* =======================================================
+       MEDIA SLIDERS (banner / poster / logo galleries)
+    ======================================================== */
+
+    const mediaSliders =
+      document.querySelectorAll(".media-slider");
+
+    mediaSliders.forEach(
+      (slider) => {
+
+        const track =
+          slider.querySelector(".slider-track");
+
+        const slides =
+          Array.from(
+            slider.querySelectorAll(".slider-slide")
+          );
+
+        const prevButton =
+          slider.querySelector(".slider-prev");
+
+        const nextButton =
+          slider.querySelector(".slider-next");
+
+        const dots =
+          Array.from(
+            slider.querySelectorAll(".slider-dot")
+          );
+
+        const counter =
+          slider.querySelector(".slider-count");
+
+        if (!track || slides.length === 0) {
+          return;
+        }
+
+        let index = 0;
+
+        function goTo(newIndex) {
+
+          index =
+            (newIndex + slides.length) % slides.length;
+
+          track.style.transform =
+            "translateX(-" + (index * 100) + "%)";
+
+          dots.forEach(
+            (dot, dotIndex) => {
+              dot.classList.toggle(
+                "active",
+                dotIndex === index
+              );
+            }
+          );
+
+          if (counter) {
+            counter.textContent =
+              (index + 1) + " / " + slides.length;
+          }
+
+          /*
+            Keep the fullscreen source in sync with
+            whichever slide is currently showing.
+          */
+
+          const activeImage =
+            slides[index].querySelector("img");
+
+          if (activeImage) {
+            slider.dataset.src = activeImage.src;
+          }
+
+        }
+
+        if (prevButton) {
+          prevButton.addEventListener(
+            "click",
+            (event) => {
+              event.stopPropagation();
+              goTo(index - 1);
+            }
+          );
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener(
+            "click",
+            (event) => {
+              event.stopPropagation();
+              goTo(index + 1);
+            }
+          );
+        }
+
+        dots.forEach(
+          (dot, dotIndex) => {
+            dot.addEventListener(
+              "click",
+              (event) => {
+                event.stopPropagation();
+                goTo(dotIndex);
+              }
+            );
+          }
+        );
+
+        goTo(0);
+
+      }
+    );
+
+
+    /* =======================================================
        IMAGE FULLSCREEN
     ======================================================== */
 
@@ -5115,32 +5549,75 @@
       );
 
 
+    function isSliderControl(target) {
+
+      return Boolean(
+        target.closest(".slider-prev") ||
+        target.closest(".slider-next") ||
+        target.closest(".slider-dot")
+      );
+
+    }
+
+
     imageMedia.forEach(
       (media) => {
+
+        const expandButton =
+          media.querySelector(".media-expand");
+
+        /*
+          Clicking anywhere on the media (except the
+          slider controls or the expand button itself,
+          which has its own listener below) opens the
+          fullscreen lightbox with whatever image is
+          currently showing.
+        */
 
         media.addEventListener(
           "click",
           (event) => {
 
             if (
-              event.target.closest(
-                ".media-expand"
-              )
+              event.target.closest(".media-expand") ||
+              isSliderControl(event.target)
             ) {
               return;
             }
 
-            const source =
-              media.dataset.src;
-
             openLightbox(
               "image",
-              source,
+              media.dataset.src,
               false
             );
 
           }
         );
+
+        /*
+          The fullscreen button gets its own listener so it
+          always works — including on mobile, where relying
+          only on the parent click was unreliable.
+        */
+
+        if (expandButton) {
+
+          expandButton.addEventListener(
+            "click",
+            (event) => {
+
+              event.stopPropagation();
+
+              openLightbox(
+                "image",
+                media.dataset.src,
+                false
+              );
+
+            }
+          );
+
+        }
 
       }
     );
