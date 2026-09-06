@@ -885,7 +885,7 @@
 
       cursor: pointer;
 
-      opacity: 0.2;
+      opacity: 0;
 
       transition:
         opacity 0.3s ease,
@@ -995,7 +995,7 @@
 
       gap: 14px;
 
-      padding: 22px;
+      padding: 15px;
     }
 
     .project-info-top {
@@ -1009,7 +1009,7 @@
     }
 
     .project-description {
-      max-width: 460px;
+      max-width: 550px;
 
       color: var(--muted);
 
