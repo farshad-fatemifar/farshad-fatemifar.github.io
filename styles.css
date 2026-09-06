@@ -876,23 +876,16 @@
       display: grid;
       place-items: center;
 
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid #687069;
       border-radius: 50%;
 
-      background: rgba(255,255,255,0.14);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 8px 20px rgba(0,0,0,0.18);
+      background: #4e574f;
 
       color: #fff;
 
       cursor: pointer;
 
-      opacity: 0;
-
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      opacity: 0.2;
 
       transition:
         opacity 0.3s ease,
@@ -905,9 +898,13 @@
     }
 
     .slider-arrow:hover {
-      background: rgba(255,255,255,0.26);
-
-      transform: translateY(-50%) scale(1.08);
+         background: #fff;
+         border-color: #4e574f;
+         color: #4e574f;
+         backdrop-filter: none;
+         -webkit-backdrop-filter: none;
+       
+         transform: translateY(-50%) scale(1.08);
     }
 
     .slider-arrow svg {
@@ -974,11 +971,9 @@
 
       border-radius: 100px;
 
-      border: 1px solid rgba(255,255,255,0.35);
+      border: 1px solid #4e574f;
 
-      background: rgba(255,255,255,0.14);
-
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
+      background: #4e574f;
 
       color: #fff;
 
@@ -986,9 +981,6 @@
       font-weight: 800;
 
       letter-spacing: 0.08em;
-
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
     }
 
     /* =========================================================
@@ -1073,8 +1065,8 @@
 
       z-index: 5;
 
-      width: 74px;
-      height: 74px;
+      width: 40px;
+      height: 40px;
 
       transform:
         translate(-50%, -50%);
@@ -1084,16 +1076,12 @@
       place-items: center;
 
       border:
-        1px solid rgba(255,255,255,0.4);
+        1px solid #e9e5d8;
 
       border-radius: 50%;
 
       background:
-        rgba(255,255,255,0.14);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.3),
-        0 15px 45px rgba(0,0,0,0.2);
+        rgb(245 241 231 / 43%);
 
       color: var(--cream-light);
 
@@ -1156,22 +1144,16 @@
       place-items: center;
 
       border:
-        1px solid rgba(255,255,255,0.4);
+        1px solid rgb(78 87 79);
 
-      border-radius: 50%;
+      border-radius: 40%;
 
       background:
-        rgba(255,255,255,0.14);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.3);
+        #4e574f;
 
       color: white;
 
       cursor: pointer;
-
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
 
       transition:
         transform 0.3s var(--ease),
@@ -1179,10 +1161,13 @@
     }
 
     .media-expand:hover {
-      transform: scale(1.08);
-
-      background:
-        rgba(255,255,255,0.26);
+         background: #fff;
+         border-color: #4e574f;
+         color: #4e574f;
+         backdrop-filter: none;
+         -webkit-backdrop-filter: none;
+       
+         transform: scale(1.08);
     }
 
     .media-expand svg {
