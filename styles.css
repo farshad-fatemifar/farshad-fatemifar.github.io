@@ -898,7 +898,7 @@
     }
 
     .slider-arrow:hover {
-         background: #fff;
+         background: #e9e5d8;
          border-color: #4e574f;
          color: #4e574f;
          backdrop-filter: none;
@@ -1087,9 +1087,6 @@
 
       cursor: pointer;
 
-      backdrop-filter: blur(16px) saturate(160%);
-      -webkit-backdrop-filter: blur(16px) saturate(160%);
-
       transition:
         transform 0.35s var(--ease),
         background 0.35s ease,
@@ -1099,7 +1096,7 @@
     .video-play:hover {
       transform:
         translate(-50%, -50%)
-        scale(1.08);
+        scale(1.0);
 
       background:
         rgba(255,255,255,0.26);
@@ -1109,7 +1106,7 @@
       width: 23px;
       height: 23px;
 
-      margin-left: 3px;
+      margin-left: 1px;
 
       fill: currentColor;
     }
@@ -1132,7 +1129,7 @@
       position: absolute;
 
       right: 17px;
-      top: 17px;
+      top: 10px;
 
       z-index: 6;
 
@@ -1161,7 +1158,7 @@
     }
 
     .media-expand:hover {
-         background: #fff;
+         background: #e9e5d8;
          border-color: #4e574f;
          color: #4e574f;
          backdrop-filter: none;
