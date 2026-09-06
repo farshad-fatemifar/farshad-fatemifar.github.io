@@ -606,6 +606,7 @@
       left: 28px;
       right: 28px;
       bottom: 25px;
+      z-index: 6;
 
       display: flex;
 
@@ -2537,6 +2538,25 @@
       .hero-card-letter {
         font-size: 135px;
       }
+       .hero-card-rings::before {
+         width: 210px;
+         height: 210px;
+       }
+       
+       .hero-card-rings::after {
+         width: 135px;
+         height: 135px;
+       }
+       
+       .hero-card-icon {
+         width: 28px;
+         height: 28px;
+       }
+       
+       .hero-card-icon svg {
+         width: 12px;
+         height: 12px;
+       }
 
       .hero-floating {
         right: 3%;
