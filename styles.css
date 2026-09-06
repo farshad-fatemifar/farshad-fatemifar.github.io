@@ -498,6 +498,7 @@
 
       left: 50%;
       top: 50%;
+      z-index: 3;
 
       transform:
         translate(-50%, -50%);
@@ -515,6 +516,89 @@
 
       letter-spacing: -0.12em;
     }
+       .hero-card-grain {
+         position: absolute;
+         inset: 0;
+         z-index: 1;
+         opacity: 0.1;
+         background-image: radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px);
+         background-size: 5px 5px;
+         pointer-events: none;
+       }
+       
+       .hero-card-rings {
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         z-index: 2;
+         transform: translate(-50%, -50%);
+         pointer-events: none;
+       }
+       
+       .hero-card-rings::before,
+       .hero-card-rings::after {
+         content: "";
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         transform: translate(-50%, -50%);
+         border-radius: 50%;
+         border: 1px dashed rgba(255,255,255,0.4);
+       }
+       
+       .hero-card-rings::before {
+         width: 300px;
+         height: 300px;
+       }
+       
+       .hero-card-rings::after {
+         width: 190px;
+         height: 190px;
+         border-color: rgba(255,255,255,0.28);
+       }
+       
+       .hero-card-shine {
+         position: absolute;
+         top: -60%;
+         left: -60%;
+         z-index: 4;
+         width: 55%;
+         height: 220%;
+         background: linear-gradient(75deg, transparent, rgba(255,255,255,0.5), transparent);
+         transform: rotate(20deg);
+         mix-blend-mode: overlay;
+         pointer-events: none;
+         animation: heroShineSweep 6s ease-in-out infinite;
+       }
+       
+       @keyframes heroShineSweep {
+         0%, 15% { transform: translateX(-30%) rotate(20deg); }
+         60%, 100% { transform: translateX(230%) rotate(20deg); }
+       }
+       
+       .hero-card-icon {
+         position: absolute;
+         z-index: 5;
+         width: 36px;
+         height: 36px;
+         display: grid;
+         place-items: center;
+         border: 1px solid rgba(255,255,255,0.5);
+         border-radius: 50%;
+         background: rgba(255,255,255,0.16);
+         backdrop-filter: blur(6px);
+         -webkit-backdrop-filter: blur(6px);
+         color: var(--cream-light);
+       }
+       
+       .hero-card-icon svg {
+         width: 15px;
+         height: 15px;
+       }
+       
+       .hero-card-icon-1 { top: 20%; left: 14%; }
+       .hero-card-icon-2 { top: 16%; right: 13%; }
+       .hero-card-icon-3 { bottom: 27%; left: 50%; transform: translateX(-50%); }
 
     .hero-card-meta {
       position: absolute;
