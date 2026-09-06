@@ -1081,7 +1081,7 @@
       border-radius: 50%;
 
       background:
-        rgb(245 241 231 / 43%);
+        rgb(245 241 231 / 50%);
 
       color: var(--cream-light);
 
@@ -1097,6 +1097,8 @@
       transform:
         translate(-50%, -50%)
         scale(1.0);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
 
       background:
         rgba(255,255,255,0.26);
