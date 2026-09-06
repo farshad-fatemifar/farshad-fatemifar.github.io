@@ -1,4 +1,4 @@
-    /* =========================================================
+/* =========================================================
        ROOT
     ========================================================= */
 
@@ -773,11 +773,21 @@
       background: var(--cream);
 
       cursor: pointer;
+
+      /* Every card gets the SAME frame height, whatever the
+         media's own shape is. That's what keeps every card's
+         top and bottom edge in line with its neighbors, and it
+         stops any one type (square logos, tall video) from
+         blowing the box up to its own native ratio. */
+      width: 100%;
+      height: min(46vh, 420px);
     }
 
-    /* Exact source ratios — each media type keeps its own
-       native ratio so nothing gets stretched or cropped */
-
+    /* object-fit: contain (below) reads each image/video's real
+       intrinsic ratio at render time and fits it inside that
+       fixed frame with no cropping, no stretching and no
+       upscaling — this aspect-ratio is only a fallback for the
+       instant before an image has loaded. */
     .project-media.landscape,
     .project-media.banner-ratio {
       aspect-ratio: 1376 / 768;
@@ -800,24 +810,6 @@
       aspect-ratio: 720 / 1280;
     }
 
-    /* Portrait media (poster + vertical video) is naturally much
-       taller than it is wide, so at full card width it towered
-       over the viewport on every screen size, not just mobile.
-       Capping the height and letting width follow the aspect
-       ratio keeps it fully visible without stretching, cropping
-       or upscaling — just a smaller, better-proportioned box,
-       centered in the card. Applies on desktop and mobile alike. */
-    .project-media.poster-ratio,
-    .project-media.derby,
-    .project-media.vertical-video {
-      width: fit-content;
-      max-width: 100%;
-
-      height: min(62vh, 560px);
-
-      margin: 0 auto;
-    }
-
     .project-media img,
     .project-media video {
       width: 100%;
@@ -826,13 +818,6 @@
       object-fit: contain;
 
       background: var(--cream);
-
-      /* Scaling (not padding) keeps the exact native aspect
-         ratio, so the shrink is perfectly even on every side —
-         no cropping, no stretching, no lopsided gaps. Full
-         source resolution is untouched; only the on-screen
-         size goes down so detail reads more clearly. */
-      transform: scale(0.88);
 
       /* Rounds the media's own corners so they read as part of
          the card instead of a sharp rectangle floating inside it. */
@@ -843,7 +828,7 @@
     }
 
     .project-media:hover img {
-      transform: scale(0.92);
+      transform: scale(1.02);
     }
 
     /* =========================================================
@@ -874,8 +859,6 @@
 
       background: var(--cream);
 
-      transform: scale(0.88);
-
       border-radius: 16px;
     }
 
@@ -893,10 +876,14 @@
       display: grid;
       place-items: center;
 
-      border: 1px solid rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.4);
       border-radius: 50%;
 
-      background: rgba(29,36,31,0.55);
+      background: rgba(255,255,255,0.14);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 8px 20px rgba(0,0,0,0.18);
 
       color: #fff;
 
@@ -904,8 +891,8 @@
 
       opacity: 0;
 
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
 
       transition:
         opacity 0.3s ease,
@@ -918,7 +905,7 @@
     }
 
     .slider-arrow:hover {
-      background: rgba(49,77,59,0.9);
+      background: rgba(255,255,255,0.26);
 
       transform: translateY(-50%) scale(1.08);
     }
@@ -987,7 +974,11 @@
 
       border-radius: 100px;
 
-      background: rgba(29,36,31,0.55);
+      border: 1px solid rgba(255,255,255,0.35);
+
+      background: rgba(255,255,255,0.14);
+
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
 
       color: #fff;
 
@@ -996,8 +987,8 @@
 
       letter-spacing: 0.08em;
 
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
     }
 
     /* =========================================================
@@ -1093,22 +1084,23 @@
       place-items: center;
 
       border:
-        1px solid rgba(255,255,255,0.45);
+        1px solid rgba(255,255,255,0.4);
 
       border-radius: 50%;
 
       background:
-        rgba(29,36,31,0.68);
+        rgba(255,255,255,0.14);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        0 15px 45px rgba(0,0,0,0.2);
 
       color: var(--cream-light);
 
       cursor: pointer;
 
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-
-      box-shadow:
-        0 15px 45px rgba(0,0,0,0.2);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
 
       transition:
         transform 0.35s var(--ease),
@@ -1122,7 +1114,7 @@
         scale(1.08);
 
       background:
-        rgba(49,77,59,0.9);
+        rgba(255,255,255,0.26);
     }
 
     .video-play svg {
@@ -1164,19 +1156,22 @@
       place-items: center;
 
       border:
-        1px solid rgba(255,255,255,0.35);
+        1px solid rgba(255,255,255,0.4);
 
       border-radius: 50%;
 
       background:
-        rgba(29,36,31,0.55);
+        rgba(255,255,255,0.14);
+
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.3);
 
       color: white;
 
       cursor: pointer;
 
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
 
       transition:
         transform 0.3s var(--ease),
@@ -1187,7 +1182,7 @@
       transform: scale(1.08);
 
       background:
-        rgba(49,77,59,0.9);
+        rgba(255,255,255,0.26);
     }
 
     .media-expand svg {
@@ -2536,6 +2531,10 @@
         column-count: 1;
       }
 
+      .project-media {
+        height: min(38vh, 340px);
+      }
+
       .project {
         border-radius: 21px;
 
@@ -3258,4 +3257,3 @@
   }
 
 }
-
