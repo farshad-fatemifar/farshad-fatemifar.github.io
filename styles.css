@@ -388,9 +388,9 @@
     }
 
     .button-primary {
-      background: var(--sage-dark);
-
-      color: var(--cream-light);
+       background: #f5f1e7;
+       color: #243d2e;
+       border: 1px solid;
     }
 
     .button-secondary {
