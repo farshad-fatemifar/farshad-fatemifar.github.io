@@ -427,7 +427,7 @@
          display: grid;
          place-items: center;
          border: 1px solid #243d2e;
-         border-radius: 40%;
+         border-radius: 43%;
          color: #243d2e;
          transition:
            background 0.3s ease,
