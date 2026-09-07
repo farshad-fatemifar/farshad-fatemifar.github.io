@@ -341,15 +341,15 @@
        
          gap: 8px;
        
-         border: 1px solid #243d2e;
+         border: 1px solid #e9e5d8;
        
-         color: #243d2e;
+         color: #e9e5d8;
        
-         background: transparent;
+         background: #243d2e;
        }
        
        .hero-resume-btn:hover {
-         background: var(--cream);
+         background: #e9e5d8;
        }
        
        .hero-resume-btn svg {
@@ -402,7 +402,7 @@
     }
 
     .button-primary:hover {
-      background: #243d2e;
+      background: #e9e5d8;
     }
 
     .button-secondary:hover {
