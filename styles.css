@@ -349,7 +349,9 @@
        }
        
        .hero-resume-btn:hover {
-         background: #e9e5d8;
+         background: #f5f1e7;
+         color: #314d3b;
+         border: 1px solid;
        }
        
        .hero-resume-btn svg {
@@ -380,9 +382,9 @@
       font-weight: 800;
 
       transition:
-        transform 0.35s var(--ease),
-        background 0.35s ease,
-        color 0.35s ease;
+        transform 0.6s var(--ease),
+        background 0.6s ease,
+        color 0.6s ease;
     }
 
     .button-primary {
@@ -392,9 +394,9 @@
     }
 
     .button-secondary {
-      border: 1px solid #243d2e;
-
-      color: #243d2e;
+      border: 1px solid #314c3b;
+      color: #314c3b;
+      background: #f5f1e7;
     }
 
     .button:hover {
@@ -402,12 +404,17 @@
     }
 
     .button-primary:hover {
-      background: #e9e5d8;
+      background: #314c3b;
+      color: #f5f1e7;
+      border: 1px solid;
     }
 
     .button-secondary:hover {
-      background: var(--cream);
+      background: #314c3b;
+      color: #f5f1e7;
+      border: 1px solid;
     }
+
     .hero-social {
          display: flex;
          gap: 10px;
