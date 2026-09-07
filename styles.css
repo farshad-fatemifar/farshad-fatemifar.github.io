@@ -327,13 +327,42 @@
     }
 
     .hero-actions {
-      display: flex;
-      align-items: center;
+       display: inline-flex;
+       flex-direction: column;
+       align-items: stretch;
+       
+       gap: 12px;
+  
+       margin-top: 35px;
+       }
 
-      gap: 12px;
-
-      margin-top: 35px;
-    }
+       .hero-resume-btn {
+         width: 100%;
+       
+         gap: 8px;
+       
+         border: 1px solid var(--line);
+       
+         color: var(--ink);
+       
+         background: transparent;
+       }
+       
+       .hero-resume-btn:hover {
+         background: var(--cream);
+       }
+       
+       .hero-resume-btn svg {
+         width: 14px;
+         height: 14px;
+       }
+       
+       .hero-actions-row {
+       display: flex;
+       align-items: center;
+       
+       gap: 12px;
+       }
 
     .button {
       display: inline-flex;
