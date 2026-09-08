@@ -690,7 +690,7 @@
 
       align-items: flex-end;
 
-      color: var(--ink);
+      color: #000;
     }
 
     .hero-card-meta strong {
@@ -703,12 +703,10 @@
 
     .hero-card-meta small {
       display: block;
-
       margin-top: 5px;
-
       font-size: 9px;
-
-      opacity: 0.65;
+      opacity: 0.8;
+      font-weight: bolder;
     }
 
     .hero-floating {
