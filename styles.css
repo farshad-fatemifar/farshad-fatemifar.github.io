@@ -3420,3 +3420,139 @@
   }
 
 }
+
+
+/* =========================================================
+   CASE STUDIES
+========================================================= */
+
+.case-study-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.case-study {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--cream);
+  border: 1px solid rgba(29,36,31,0.08);
+}
+
+.case-study-reverse .case-study-media {
+  order: 2;
+}
+
+.case-study-reverse .case-study-content {
+  order: 1;
+}
+
+.case-study-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  cursor: pointer;
+  background: var(--cream);
+}
+
+.case-study-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.case-study-media:hover img {
+  transform: scale(1.03);
+}
+
+.case-study-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 52px 48px;
+}
+
+.case-study-number {
+  color: var(--sage-dark);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.case-study-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.case-study-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(29,36,31,0.15);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.case-study-block span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--sage-dark);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.case-study-block p {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+@media (max-width: 950px) {
+  .case-study-content {
+    padding: 40px 36px;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-study {
+    border-radius: 21px;
+  }
+  .case-study-list {
+    gap: 20px;
+  }
+  .case-study,
+  .case-study-reverse {
+    grid-template-columns: 1fr;
+  }
+  .case-study-reverse .case-study-media,
+  .case-study-media {
+    order: 1;
+  }
+  .case-study-reverse .case-study-content,
+  .case-study-content {
+    order: 2;
+  }
+  .case-study-media {
+    min-height: 300px;
+  }
+  .case-study-content {
+    padding: 28px 22px;
+  }
+  .case-study-title {
+    font-size: 20px;
+  }
+}
