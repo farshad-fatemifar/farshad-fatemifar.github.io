@@ -3453,7 +3453,7 @@
 .case-study-media {
   position: relative;
   overflow: hidden;
-  min-height: 480px;
+  aspect-ratio: 16 / 9;
   cursor: pointer;
   background: var(--cream);
 }
@@ -3547,7 +3547,7 @@
     order: 2;
   }
   .case-study-media {
-    min-height: 300px;
+    aspect-ratio: 16 / 9;
   }
   .case-study-content {
     padding: 28px 22px;
