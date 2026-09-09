@@ -1084,7 +1084,7 @@
       position: absolute;
 
       left: 50%;
-      bottom: 16px;
+      bottom: 5px;
       z-index: 6;
 
       transform: translateX(-50%);
@@ -1103,7 +1103,7 @@
       border: none;
       border-radius: 50%;
 
-      background: rgba(255,255,255,0.55);
+      background: rgb(78 87 79);
 
       cursor: pointer;
 
@@ -1117,7 +1117,7 @@
       width: 18px;
       border-radius: 4px;
 
-      background: #fff;
+      background: #4e574f;
     }
 
     .slider-count {
